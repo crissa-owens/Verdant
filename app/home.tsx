@@ -1,12 +1,18 @@
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, Platform } from "react-native";
+import ProgressBar from "./components/progress-bar";
 
 export default function HomePage() {
     return (
         
-        <View>
+        <View style={{ flex: 1}}>
             <View style={styles.container}>
                 <Text>Hello User!</Text>
                 <Text>What would you like to do today?</Text>
+            </View>
+            
+            <View style={{ alignSelf: "center", alignItems: "center", width: "70%" }}>
+                <Text style={{ margin: 10 }}>Task Bar</Text>
+                <ProgressBar/>
             </View>
         </View>
     )
@@ -14,12 +20,21 @@ export default function HomePage() {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         justifyContent: "center",
         alignItems: "center",
         alignSelf: "center",
-        padding: 20,
-        marginTop: 50,
-        backgroundColor: "#f0f0f0",
-        width: "30%",
+        backgroundColor: "#e6e6e6",
+        borderRadius: 10,
+        ...Platform.select({
+            ios: {
+                margin: 20,
+                width: "70%",
+                height: 100,
+            },
+            web: {
+                padding: 20,
+                margin: 30,
+                width: "30%",
+            },
+        })
     }})
