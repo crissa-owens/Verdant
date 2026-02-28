@@ -1,6 +1,11 @@
 import { StyleSheet, Platform } from "react-native";
 
 export const styles = StyleSheet.create({
+    title: {
+        fontSize: 30,
+        fontWeight: "bold",
+        margin: 20,
+    },
     container: {
         justifyContent: "center",
         alignItems: "center",
@@ -20,4 +25,9 @@ export const styles = StyleSheet.create({
                 width: "30%",
             },
         })
-    }})
+    },
+    shop_styles: {
+        justifyContent: "center",
+        alignItems: "center",
+    }
+})
