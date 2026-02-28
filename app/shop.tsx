@@ -5,7 +5,7 @@ import ShopCard from "./shop-card";
 import { Reward } from "./interfaces/reward";
 
 import rewardData from "./data/rewards.json";
-const REWARDS: Reward[] = Object.values(rewardData);
+const REWARDS: Reward[] = rewardData.rewards;
 
 export default function ShopPage() {
     return (

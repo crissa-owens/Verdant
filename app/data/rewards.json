@@ -4,8 +4,8 @@
         "title": "Adopt an Animal",
         "id": 901,
         "description": "Adopt an endangered animal of your choosing. Track their movement and health!",
-        "sproutCost": 10000,
-        "prize" : "1 animal",
+        "cost": 10000,
+        "value" : "1 animal",
         "image" : ""
         },
 
@@ -13,8 +13,8 @@
         "title": "Donate to Parks",
         "id": 902,
         "description":"Donate money to a park of your choosing",
-        "sproutCost": 30,
-        "prize":"10 USD",
+        "cost": 30,
+        "value":"10 USD",
         "image" : ""
         },
 
@@ -22,8 +22,8 @@
         "title":"Donate to Coral Reef Restoration",
         "id": 903,
         "description":"Donate money to coral reef restoration.",
-        "sproutCost": 30,
-        "prize":"10 USD",
+        "cost": 30,
+        "value":"10 USD",
         "image" : ""
         },
 
@@ -31,8 +31,8 @@
         "title":"Plant a Tree",
         "id": 904,
         "description": "Plant a tree!",
-        "sproutCost": 10,
-        "prize": "1 tree",
+        "cost": 10,
+        "value": "1 tree",
         "image": ""
         },
 
@@ -40,8 +40,8 @@
         "title": "Donate to Animal Rehabilitiation",
         "id": 905,
         "description": "Donate money to animal rehabilitation clinics and organizations",
-        "sproutCost": 30,
-        "prize":"10 USD",
+        "cost": 30,
+        "value":"10 USD",
         "image": ""
         },
 
@@ -49,8 +49,8 @@
         "title": "Donate to Sustainable Research",
         "id": 906,
         "description": "Donate money to furthering reseach in sustainable goals of your choosing.",
-        "sproutCost": 30,
-        "prize":"10 USD",
+        "cost": 30,
+        "value":"10 USD",
         "image": ""
         }
     ]

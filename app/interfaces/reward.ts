@@ -3,6 +3,6 @@ export interface Reward {
     id: number;
     description: string;
     cost: number;
-    value: number;
+    value: string;
     image: string;
 }
