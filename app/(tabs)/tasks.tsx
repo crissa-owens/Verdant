@@ -1,0 +1,20 @@
+import { StyleSheet } from "react-native";
+import { TimeIncrement } from "../components/time-increment";
+import { AllTasks } from "../components/all-tasks";
+
+export default function taskPage() {
+  return <AllTasks />;
+}
+
+const styles = StyleSheet.create({
+  headerImage: {
+    color: "#808080",
+    bottom: -90,
+    left: -35,
+    position: "absolute",
+  },
+  titleContainer: {
+    flexDirection: "row",
+    gap: 8,
+  },
+});

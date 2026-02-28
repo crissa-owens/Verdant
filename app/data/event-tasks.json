@@ -1,27 +1,27 @@
 {
     "taskType":"Event Based",
-    "Tasks": [
+    "EventTasks": [
        {
         "Title":"Rescue an animal",
-        "ID": "301",
+        "ID": 301,
         "Description":"Adopt an animal from a shelter or save a stray",
-        "SproutValue":"100",
+        "SproutValue": 100,
         "PerLinear":"1 claim"
        },
 
        {
         "Title":"Visit a large park",
-        "ID": "302",
+        "ID": 302,
         "Description":"Patron a state or national park",
-        "SproutValue": "50",
+        "SproutValue": 50,
         "PerLinear": "1 trip"
        },
 
        {
         "Title": "Visit a local park",
-        "ID": "303",
+        "ID": 303,
         "Description":"Visit a local park",
-        "SproutValue":"20",
+        "SproutValue": 20,
         "PerLinear": "1 trip"
        }
     ]
