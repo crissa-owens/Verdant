@@ -1,0 +1,57 @@
+{
+    "rewards" : [
+        {
+        "Title": "Adopt an Animal",
+        "ID": 901,
+        "Description": "Adopt an endangered animal of your choosing. Track their movement and health!",
+        "SproutCost": 10000,
+        "Prize" : "1 animal",
+        "Image" : ""
+        },
+
+        {
+        "Title": "Donate to Parks",
+        "ID": 902,
+        "Description":"Donate money to a park of your choosing",
+        "SproutCost": 30,
+        "Prize":"10 USD",
+        "Image" : ""
+        },
+
+        {
+        "Title":"Donate to Coral Reef Restoration",
+        "ID": 903,
+        "Description":"Donate money to coral reef restoration.",
+        "SproutCost": 30,
+        "Prize":"10 USD",
+        "Image" : ""
+        },
+
+        {
+        "Title":"Plant a Tree",
+        "ID": 904,
+        "Description": "Plant a tree!",
+        "SproutCost": 10,
+        "Prize": "1 tree",
+        "Image": ""
+        },
+
+        {
+        "Title": "Donate to Animal Rehabilitiation",
+        "ID": 905,
+        "Description": "Donate money to animal rehabilitation clinics and organizations",
+        "SproutCost": 30,
+        "Prize":"10 USD",
+        "Image": ""
+        },
+
+        {
+        "Title": "Donate to Sustainable Research",
+        "ID": 906,
+        "Description": "Donate money to furthering reseach in sustainable goals of your choosing.",
+        "SproutCost": 30,
+        "Prize":"10 USD",
+        "Image": ""
+        }
+    ]
+}
