@@ -1,5 +1,5 @@
 import { Text, View, StyleSheet, Platform } from "react-native";
-import ProgressBar from "./components/progress-bar";
+import ProgressBar from "../components/progress-bar";
 
 export default function HomePage() {
     return (

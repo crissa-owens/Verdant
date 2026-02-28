@@ -1,59 +1,59 @@
 {
     "taskType":"quantity based",
-    "tasks": [
+    "QuantityTasks": [
         {
         "Title":"Refill Reusable Waterbottle",
-        "ID":"101",
+        "ID": 101,
         "Description":"From empty, refill a reusable waterbottle",
-        "SproutValue":"5",
+        "SproutValue": 5,
         "PerLinear":"1 refill"
         },
 
         {
         "Title":"Recycle Plastic",
-        "ID":"102",
+        "ID":102,
         "Description":"Recycle plastic equivalent to 3 waterbottles or 2 plastic bags",
-        "SproutValue":"5",
+        "SproutValue": 5,
         "PerLinear":"1 claim"
         },
 
         {
         "Title":"Recycle Technology",
-        "ID": "103",
+        "ID": 103,
         "Description":"Recycle items such as: batteries, printer cartridges, or old electronics",
-        "SproutValue":"50",
+        "SproutValue": 50,
         "PerLinear":"1 item"
         },
 
         {
         "Title":"Donate Clothes",
-        "ID": "104",
+        "ID": 104,
         "Description":"Donate clothing to thrift stores or donation facilities",
-        "SproutValue":"20",
+        "SproutValue": 20,
         "PerLinear":"3 articles of clothing"
         },
 
         {
         "Title":"Shop Sustainable",
-        "ID":"105",
+        "ID": 105,
         "Description": "Shop at thrift stores or from reusable brands",
-        "SproutValue":"10",
+        "SproutValue": 10,
         "PerLinear":"1 trip"
         },
 
         {
         "Title":"Non-motorized Transport",
-        "ID":"106",
+        "ID": 106,
         "Description":"Travel by non-motorized means, including: walking, biking, or skating",
-        "SproutValue":"5",
+        "SproutValue": 5,
         "PerLinear":"1 mile"
         },
 
         {
         "Title":"Donate to Environmental Charity",
-        "ID":"107",
+        "ID": 107,
         "Description":"Donate money to environmental charities",
-        "SproutValue": "50",
+        "SproutValue": 50,
         "PerLinear": "Per 20 USD"
         }
     ]
