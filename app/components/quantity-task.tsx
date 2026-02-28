@@ -3,12 +3,12 @@ import { TimeIncrement } from "./time-increment";
 import { useState } from "react";
 import { Task } from "../interfaces/task";
 
-interface TimeTaskProps {
+interface QuantityTaskProps {
   task: Task;
   onBack: () => void;
 }
 
-export function TimeTask({ task, onBack }: TimeTaskProps) {
+export function QuantityTask({ task, onBack }: QuantityTaskProps) {
   return (
     <View style={styles.container}>
       <View style={styles.card}>
@@ -20,8 +20,6 @@ export function TimeTask({ task, onBack }: TimeTaskProps) {
             {task.SproutValue} Sprouts per {task.PerLinear}
           </Text>
         </View>
-
-        <TimeIncrement/>
 
         <Pressable style={styles.backButton} onPress={onBack}>
           <Text style={styles.backButtonText}>Back</Text>
@@ -64,7 +62,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#e8f5e9",
     padding: 12,
     borderRadius: 12,
-    marginBottom: 20,
+    marginBottom: 30,
   },
   rewardText: {
     fontSize: 16,
@@ -72,7 +70,6 @@ const styles = StyleSheet.create({
     color: "#2e7d32",
   },
   backButton: {
-    marginTop: 20,
     backgroundColor: "#222",
     paddingVertical: 12,
     borderRadius: 12,

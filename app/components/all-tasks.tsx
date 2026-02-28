@@ -1,34 +1,37 @@
 import { useState } from "react";
-import { Pressable, Text, View, StyleSheet, Platform } from "react-native";
+import { Pressable, Text, View, StyleSheet, Platform, ScrollView } from "react-native";
 import { TimeTask } from "./time-task";
 import { TimeTasks } from "../data/time-tasks.json";
 import { QuantityTasks } from "../data/quantity-tasks.json";
 import { EventTasks } from "../data/event-tasks.json";
 import { Task } from "../interfaces/task";
+import { EventTask } from "./event-task";
+import { QuantityTask } from "./quantity-task";
 
 export function AllTasks() {
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
 
   const Tasks = [...TimeTasks, ...QuantityTasks, ...EventTasks];
-
-  function handleTimeTaskPress(task: Task) {
+  function handleTaskPress(task: Task) {
     setSelectedTask(task);
   }
-
   if (selectedTask) {
-    return <TimeTask task={selectedTask} onBack={() => setSelectedTask(null)} />;
+    if (selectedTask.ID >= 101 && selectedTask.ID <= 103) {
+      return <QuantityTask task={selectedTask} onBack={() => setSelectedTask(null)} />;
+    } else if (selectedTask.ID >= 201 && selectedTask.ID <= 203) {
+      return <TimeTask task={selectedTask} onBack={() => setSelectedTask(null)} />;
+    } else {
+        return <EventTask task={selectedTask} onBack={() => setSelectedTask(null)} />;
+    }
   }
 
   return (
-    <View>
+    <ScrollView>
       {Tasks.map((task) => (
         <Pressable
           key={task.ID}
           onPress={() => {
-            if (task.ID >= 201 && task.ID <= 203) {
-              handleTimeTaskPress(task);
-            }
-          }}
+              handleTaskPress(task)}}
         >
             <View style={styles.container}>
                 <Text style={styles.title}>{task.Title}</Text>
@@ -39,7 +42,7 @@ export function AllTasks() {
             </View>
         </Pressable>
       ))}
-    </View>
+    </ScrollView>
   );
 }
 
@@ -52,12 +55,12 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         ...Platform.select({
             ios: {
-                margin: 20,
-                width: "70%",
+                margin: 10,
+                width: "90%",
                 height: 100,
             },
             web: {
-                padding: 20,
+                padding: 10,
                 margin: 30,
                 width: "30%",
             },

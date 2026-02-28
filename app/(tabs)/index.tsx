@@ -1,25 +1,40 @@
-import { StyleSheet } from "react-native";
-import { TimeIncrement } from "../components/time-increment";
+import { Text, View, StyleSheet, Platform } from "react-native";
+import ProgressBar from "../components/progress-bar";
 
-export default function HomeScreen() {
-  return <TimeIncrement />;
+export default function HomePage() {
+    return (
+        
+        <View style={{ flex: 1}}>
+            <View style={styles.container}>
+                <Text>Hello User!</Text>
+                <Text>What would you like to do today?</Text>
+            </View>
+            
+            <View style={{ alignSelf: "center", alignItems: "center", width: "70%" }}>
+                <Text style={{ margin: 10 }}>Progress to Next Task</Text>
+                <ProgressBar/>
+            </View>
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: "absolute",
-  },
-});
+    container: {
+        justifyContent: "center",
+        alignItems: "center",
+        alignSelf: "center",
+        backgroundColor: "#e6e6e6",
+        borderRadius: 10,
+        ...Platform.select({
+            ios: {
+                margin: 20,
+                width: "70%",
+                height: 100,
+            },
+            web: {
+                padding: 20,
+                margin: 30,
+                width: "30%",
+            },
+        })
+    }})
