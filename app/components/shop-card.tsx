@@ -1,5 +1,5 @@
 import { Image, Platform, StyleSheet, Text, View } from "react-native";
-import { Reward } from "./interfaces/reward";
+import { Reward } from "../interfaces/reward";
 
 interface ShopCardProps {
   reward: Reward;
@@ -11,10 +11,10 @@ export default function ShopCard(props: ShopCardProps) {
     <View style={styles.shop_card}>
       <View style={{ width: "100%", height: "60%" }}>
         <Image
-        source={{ uri: reward.image }}
-        style={{ width: "100%", height: "100%" }}
-        resizeMode="cover"
-      />
+          source={{ uri: reward.image }}
+          style={{ width: "100%", height: "100%" }}
+          resizeMode="cover"
+        />
       </View>
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         <Text style={{ padding: 10 }}>{reward.title}</Text>
