@@ -1,18 +1,14 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
-import { Link } from 'expo-router';
-import { TimeBasedTask } from '../components/time-based-tasks';
+import { StyleSheet } from "react-native";
+import { TimeIncrement } from "../components/time-increment";
 
 export default function HomeScreen() {
-  return (
-      <TimeBasedTask />
-  );
+  return <TimeIncrement />;
 }
 
 const styles = StyleSheet.create({
   titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     gap: 8,
   },
   stepContainer: {
@@ -24,6 +20,6 @@ const styles = StyleSheet.create({
     width: 290,
     bottom: 0,
     left: 0,
-    position: 'absolute',
+    position: "absolute",
   },
 });

@@ -1,22 +1,20 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
-import { TimeBasedTask } from '../components/time-based-tasks';
+import { StyleSheet } from "react-native";
+import { TimeIncrement } from "../components/time-increment";
+import { AllTasks } from "../components/all-tasks";
 
 export default function taskPage() {
-  return (
-      <TimeBasedTask />
-  );
+  return <AllTasks />;
 }
 
 const styles = StyleSheet.create({
   headerImage: {
-    color: '#808080',
+    color: "#808080",
     bottom: -90,
     left: -35,
-    position: 'absolute',
+    position: "absolute",
   },
   titleContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     gap: 8,
   },
 });

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { View, Button, StyleSheet, SafeAreaView, TextInput, Pressable, Text } from 'react-native';
 
-export function TimeBasedTask() {
+export function TimeIncrement() {
     const [timeSpent, setTimeSpent] = useState(0);
 
     return (
