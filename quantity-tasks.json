@@ -1,0 +1,21 @@
+{
+    "taskType":"quantity based",
+    "tasks": [
+        {
+        "Title":"Refill Reusable Waterbottle",
+        "ID":"101",
+        "Description":"From empty, refill a reusable waterbottle",
+        "SproutValue":"5",
+        "PerLinear":"One refill"
+        },
+
+        {
+        "Title":"Recycle Plastic",
+        "ID":"102",
+        "Description":"",
+        "SproutValue":"",
+        "PerLinear":""
+        }
+    ]
+
+}
