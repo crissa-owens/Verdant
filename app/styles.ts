@@ -29,5 +29,15 @@ export const styles = StyleSheet.create({
     shop_styles: {
         justifyContent: "center",
         alignItems: "center",
+        width: "100%",
+        height: "100%",
+        
+    },
+    card_container: {
+        flexDirection: "row", 
+        flexWrap: "wrap", 
+        justifyContent: "center" ,
+        width: "100%",
+        height: "100%",
     }
 })

@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
 import { styles } from "./styles";
 import Divider from "./components/divider";
 import ShopCard from "./shop-card";
@@ -13,9 +13,11 @@ export default function ShopPage() {
             <View style={styles.shop_styles}>
                 <Text style={styles.title}>Shop</Text>
                 <Divider/>
+                <ScrollView contentContainerStyle={styles.card_container}>
                 {REWARDS.map((reward, index) => (
                     <ShopCard key={index} reward={reward}/>
                 ))}
+                </ScrollView>
             </View>
         </View>
     )
