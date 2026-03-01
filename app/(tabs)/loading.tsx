@@ -20,27 +20,33 @@ const LoadingDots = () => {
             ]).start(() => animate());
         };
         animate();
-    }, []);
+    }, );
     return (
          <View style={styles.container}>
+            <Image source={{uri: 'https://i.imgur.com/d11lUJY.png'}}
+            style={{ width: 200, height: 200, }}/>
+            <Text style = {{fontSize: 50}}>Loading</Text>        
          <Animated.Text style={[styles.dot, { opacity: dot1 }]}>.</Animated.Text>
          <Animated.Text style={[styles.dot, { opacity: dot2 }]}>.</Animated.Text>
          <Animated.Text style={[styles.dot, { opacity: dot3 }]}>.</Animated.Text>
+         <Text style = {{fontSize: 20}}>Thank you for using Verdant!</Text>
       </View>
       );
     };
     
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'lightslategrey',
   },
   dot: {
     fontSize: 40,
     fontWeight: 'bold',
     marginHorizontal: 2,
-    color: '#000', // Change this to match your UI
+    color: 'black',
   },
 });
 
