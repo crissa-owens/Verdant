@@ -26,6 +26,7 @@ const MAPPING = {
   'person.fill.badge.plus': 'person-add',
   'person.fill.badge.minus': 'person-remove',
   'person.3.fill': 'group',
+  'star': 'star'
 } satisfies Partial<IconMapping>;
 
 /**

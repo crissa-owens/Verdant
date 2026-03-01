@@ -1,17 +1,25 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Text, View, Pressable, StyleSheet } from "react-native";
 import { Task } from "../../interfaces/task";
+import { IconSymbol } from "../ui/icon-symbol.ios";
+
 
 interface EventTaskProps {
   task: Task;
   onBack: () => void;
   onSubmit: (sprouts: number) => void;
+  setFavorite: (task: Task) => void;
 }
 
-export function EventTask({ task, onBack, onSubmit }: EventTaskProps) {
+export function EventTask({ task, onBack, onSubmit, setFavorite }: EventTaskProps) {
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-        <Text style={styles.title}>{task.Title}</Text>
+         <View style={{ flexDirection: "row", marginBottom: 20 }}>
+                  <Text style={styles.title}>{task.Title}</Text>
+                  <Pressable onPress={() => setFavorite(task)} style={{ marginLeft: "auto" }}>
+                    <IconSymbol name="star" size={60} color="#f2c910" />
+                  </Pressable>
+                </View>
         <Text style={styles.description}>{task.Description}</Text>
 
         <View style={styles.rewardContainer}>
