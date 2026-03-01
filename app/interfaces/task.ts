@@ -3,5 +3,6 @@ export interface Task {
     ID: number;
     Description: string;
     SproutValue: number;
-    PerLinear: string;
+    Threshold: number;
+    Unit: string;
 }

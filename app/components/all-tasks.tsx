@@ -8,20 +8,30 @@ import { Task } from "../interfaces/task";
 import { EventTask } from "./event-task";
 import { QuantityTask } from "./quantity-task";
 
-export function AllTasks() {
+interface AllTasksProps {
+    sprouts: number;
+    setSprouts: (newSprouts: number) => void;
+}
+
+export function AllTasks({ sprouts, setSprouts }: AllTasksProps) {
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
 
   const Tasks = [...TimeTasks, ...QuantityTasks, ...EventTasks];
   function handleTaskPress(task: Task) {
     setSelectedTask(task);
   }
+  function handleSubmit(newSprouts: number) {
+    setSelectedTask(null);
+    setSprouts(sprouts + newSprouts);
+  }
+
   if (selectedTask) {
     if (selectedTask.ID >= 101 && selectedTask.ID <= 103) {
-      return <QuantityTask task={selectedTask} onBack={() => setSelectedTask(null)} />;
+      return <QuantityTask task={selectedTask} onBack={() => setSelectedTask(null)} onSubmit={handleSubmit} />;
     } else if (selectedTask.ID >= 201 && selectedTask.ID <= 203) {
-      return <TimeTask task={selectedTask} onBack={() => setSelectedTask(null)} />;
+      return <TimeTask task={selectedTask} onBack={() => setSelectedTask(null)} onSubmit={handleSubmit}/>;
     } else {
-        return <EventTask task={selectedTask} onBack={() => setSelectedTask(null)} />;
+        return <EventTask task={selectedTask} onBack={() => setSelectedTask(null)} onSubmit={handleSubmit}/>;
     }
   }
 
@@ -37,7 +47,7 @@ export function AllTasks() {
                 <Text style={styles.title}>{task.Title}</Text>
                 <Text style={styles.description}>{task.Description}</Text>
                 <Text style={styles.sprouts}>
-                    {task.SproutValue} Sprouts per {task.PerLinear}
+                    {task.SproutValue} Sprouts per {task.Threshold} {task.Unit}
                 </Text>
             </View>
         </Pressable>
