@@ -1,13 +1,18 @@
 import { Text, View } from "react-native";
 import { styles } from "../styles";
 import ProgressBar from "../components/progress-bar";
+import { useContext } from "react";
+import { NameContext } from "../context/name";
 
 export default function HomePage() {
+    const context = useContext(NameContext);
+    if (!context) throw new Error("NameContext missing");
+    
     return (
         
         <View style={{ flex: 1}}>
             <View style={styles.container}>
-                <Text>Hello User!</Text>
+                <Text>Hello {context.name ? context.name : "Guest"}!</Text>
                 <Text>What would you like to do today?</Text>
             </View>
             
