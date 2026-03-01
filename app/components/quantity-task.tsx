@@ -2,20 +2,27 @@ import { Text, View, Pressable, StyleSheet } from "react-native";
 import { QuantityIncrement } from "./quantity-increment";
 import { useState } from "react";
 import { Task } from "../interfaces/task";
+import { IconSymbol } from "./ui/icon-symbol";
 
 
 interface QuantityTaskProps {
   task: Task;
   onBack: () => void;
   onSubmit: (sprouts: number) => void;
+  setFavorite: (task: Task) => void;
 }
 
-export function QuantityTask({ task, onBack, onSubmit }: QuantityTaskProps) {
+export function QuantityTask({ task, onBack, onSubmit, setFavorite }: QuantityTaskProps) {
     const [quantity, setQuantity] = useState(0);
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-        <Text style={styles.title}>{task.Title}</Text>
+        <View style={{ flexDirection: "row", marginBottom: 20 }}>
+          <Text style={styles.title}>{task.Title}</Text>
+          <Pressable onPress={() => setFavorite(task)} style={{ marginLeft: "auto" }}>
+            <IconSymbol name="star" size={60} color="#f2c910" />
+          </Pressable>
+        </View>
         <Text style={styles.description}>{task.Description}</Text>
 
         <View style={styles.rewardContainer}>

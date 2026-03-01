@@ -3,12 +3,15 @@ import { TimeIncrement } from "../components/time-increment";
 import { AllTasks } from "../components/all-tasks";
 import { SproutContext } from "../context/sprout";
 import { useContext } from "react";
+import { TaskContext } from "../context/task";
 
 export default function TaskPage() {
-  const context = useContext(SproutContext);
+  const sproutCtxt = useContext(SproutContext);
+  const taskCtxt = useContext(TaskContext);
 
-  if (!context) throw new Error("SproutContext missing");
-  return <AllTasks sprouts={context.sprouts} setSprouts={context.setSprouts} />;
+  if (!sproutCtxt) throw new Error("SproutContext missing");
+  if (!taskCtxt) throw new Error("TaskContext missing");
+  return <AllTasks sprouts={sproutCtxt.sprouts} setSprouts={sproutCtxt.setSprouts} setFavorite={taskCtxt.setTask}/>;
 }
 
 const styles = StyleSheet.create({
