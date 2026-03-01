@@ -1,14 +1,15 @@
-import { Image, Platform, StyleSheet, Text, View } from "react-native";
+import { Image, Platform, Pressable, StyleSheet, Text, View } from "react-native";
 import { Reward } from "../interfaces/reward";
 
 interface ShopCardProps {
   reward: Reward;
+  onPress: (reward: Reward) => void;
 }
 
 export default function ShopCard(props: ShopCardProps) {
-  const { reward } = props;
+  const { reward, onPress } = props;
   return (
-    <View style={styles.shop_card}>
+    <Pressable style={styles.shop_card}onPress={() => onPress(reward)}>
       <View style={{ width: "100%", height: "60%" }}>
         <Image
           source={{ uri: reward.image }}
@@ -20,7 +21,7 @@ export default function ShopCard(props: ShopCardProps) {
         <Text style={{ padding: 10 }}>{reward.title}</Text>
         <Text style={{ padding: 10 }}>{reward.cost} Sprouts</Text>
       </View>
-    </View>
+    </Pressable>
   );
 }
 
