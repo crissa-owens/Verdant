@@ -27,10 +27,8 @@ export default function ShopPage() {
   }
 
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <View style={styles.shop_styles}>
-        <Text style={styles.title}>Shop</Text>
-        <Divider />
           <FlatList
           data={REWARDS}
           style={{ width: "100%" }}
