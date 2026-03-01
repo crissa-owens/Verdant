@@ -11,9 +11,10 @@ import { QuantityTask } from "./quantity-task";
 interface AllTasksProps {
     sprouts: number;
     setSprouts: (newSprouts: number) => void;
+    setFavorite: (task: Task) => void;
 }
 
-export function AllTasks({ sprouts, setSprouts }: AllTasksProps) {
+export function AllTasks({ sprouts, setSprouts, setFavorite }: AllTasksProps) {
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
 
   const Tasks = [...TimeTasks, ...QuantityTasks, ...EventTasks];
@@ -27,11 +28,11 @@ export function AllTasks({ sprouts, setSprouts }: AllTasksProps) {
 
   if (selectedTask) {
     if (selectedTask.ID >= 101 && selectedTask.ID <= 199) {
-      return <QuantityTask task={selectedTask} onBack={() => setSelectedTask(null)} onSubmit={handleSubmit} />;
+      return <QuantityTask task={selectedTask} onBack={() => setSelectedTask(null)} onSubmit={handleSubmit} setFavorite={setFavorite}/>;
     } else if (selectedTask.ID >= 201 && selectedTask.ID <= 299) {
-      return <TimeTask task={selectedTask} onBack={() => setSelectedTask(null)} onSubmit={handleSubmit}/>;
+      return <TimeTask task={selectedTask} onBack={() => setSelectedTask(null)} onSubmit={handleSubmit} setFavorite={setFavorite}/>;
     } else {
-        return <EventTask task={selectedTask} onBack={() => setSelectedTask(null)} onSubmit={handleSubmit}/>;
+        return <EventTask task={selectedTask} onBack={() => setSelectedTask(null)} onSubmit={handleSubmit} setFavorite={setFavorite}/>;
     }
   }
 
@@ -41,8 +42,7 @@ export function AllTasks({ sprouts, setSprouts }: AllTasksProps) {
         <Pressable
           key={task.ID}
           onPress={() => {
-              handleTaskPress(task)}}
-        >
+              handleTaskPress(task)}}>
             <View style={styles.container}>
                 <Text style={styles.title}>{task.Title}</Text>
                 <Text style={styles.description}>{task.Description}</Text>

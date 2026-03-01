@@ -22,6 +22,7 @@ const MAPPING = {
   'leaf.fill': 'eco',
   'cart': 'shopping-cart',
   'person.circle': 'person',
+  'star': 'star',
 } satisfies Partial<IconMapping>;
 
 /**

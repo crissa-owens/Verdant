@@ -2,19 +2,26 @@ import { Text, View, Pressable, StyleSheet } from "react-native";
 import { TimeIncrement } from "./time-increment";
 import { useState } from "react";
 import { Task } from "../interfaces/task";
+import { IconSymbol } from "./ui/icon-symbol";
 
 interface TimeTaskProps {
   task: Task;
   onBack: () => void;
   onSubmit: (sprouts: number) => void;
+  setFavorite: (task: Task) => void;
 }
 
-export function TimeTask({ task, onBack, onSubmit }: TimeTaskProps) {
+export function TimeTask({ task, onBack, onSubmit, setFavorite }: TimeTaskProps) {
     const [time, setTime] = useState(0);
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-        <Text style={styles.title}>{task.Title}</Text>
+         <View style={{ flexDirection: "row", marginBottom: 20 }}>
+                  <Text style={styles.title}>{task.Title}</Text>
+                  <Pressable onPress={() => setFavorite(task)} style={{ marginLeft: "auto" }}>
+                    <IconSymbol name="star" size={60} color="#f2c910" />
+                  </Pressable>
+                </View>
         <Text style={styles.description}>{task.Description}</Text>
 
         <View style={styles.rewardContainer}>
