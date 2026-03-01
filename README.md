@@ -1,50 +1,64 @@
-# Welcome to your Expo app 👋
+# Verdant 🌱
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Verdant is a task‑management and reward‑driven mobile application built with Expo and React Native. It helps users stay motivated by tracking daily tasks, earning rewards for milestones, and connecting with friends through a simple community interface. In the future, we'd like to incorporate a fully-fledged social system as opposed to the outline currently in place.
 
-## Get started
+## 🚀 Project Overview
 
-1. Install dependencies
+- **Tasks** – users can create and complete tasks of various types (timed, quantity, events) stored in the `data` folder.
+- **Rewards & Milestones** – completing tasks earns points that unlock rewards and milestones managed via context providers.
+- **Community** – add friends, view a leaderboard, and celebrate progress together.
+- **Profile & Shop** – personalize your profile and spend points on rewards in the shop.
 
+The app uses Expo's [file‑based routing](https://docs.expo.dev/router/introduction/) to map files under `app/` to navigable screens.
+
+## 📁 Project Structure
+
+```
+app/                # Screens and layout components
+  (tabs)/           # Tab navigator views (community, profile, shop, tasks)
+  components/       # Reusable UI components
+  context/          # React contexts (favorite, milestone, name, sprout)
+  data/             # JSON templates for tasks and rewards
+  interfaces/       # TypeScript interfaces
+assets/             # Images and static assets
+
+package.json        # Dependencies and scripts
+README.md           # This document
+```
+
+## 🛠️ Getting Started
+
+1. **Install dependencies**
    ```bash
    npm install
    ```
-
-2. Start the app
-
+2. **Start the development server**
    ```bash
    npx expo start
    ```
+3. **Open the app** in an emulator, simulator, or Expo Go (instructions appear in the terminal).
 
-In the output, you'll find options to open the app in a
+> The app is configured for both iOS and Android and will also run in a web browser.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## 📝 Editing & Development
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- All new screens or routes belong under `app/`. Create files or folders and Expo Router will pick them up automatically.
+- Shared UI components live in `app/components`. Add new widgets or update existing ones to reuse throughout the app.
+- Context providers in `app/context` hold global state such as user name, favorites, and milestone progress.
+- Modify task/reward templates in `app/data/*.json`; the code reads these files to populate lists.
 
-## Get a fresh project
+## 📦 Data Formats
 
-When you're ready, run:
+- `event-tasks.json` – event‑style tasks with custom dates
+- `quantity-tasks.json` – tasks requiring a number of completions
+- `time-tasks.json` – tasks measured by duration
+- `rewards.json` – available rewards with cost and description
 
-```bash
-npm run reset-project
-```
+Interfaces for tasks and rewards are defined in `app/interfaces/task.ts` and `reward.ts` respectively.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🌐 Community Features
 
-## Learn more
+- **Friends list** – add or remove friends inside `app/components/community/friends-list.tsx`.
+- **Leaderboard** – ranks users by points (mock data or real backend integration can be added).
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Happy coding and growing with Verdant! 🌿

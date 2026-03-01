@@ -7,7 +7,8 @@
         "Description":"Adopt an animal from a shelter or save a stray",
         "SproutValue": 100,
         "Threshold": 1,
-        "Unit":"rescue"
+        "Unit":"rescue",
+        "Detail":"Animals across the nation are filling the streets and shelters, in need of your love and care. Adopt an animal from a rescue or save a stray for the opportunity to contirbute to eco-sustainability goals and gain a lifelong companian!"
 
        },
 
@@ -17,7 +18,8 @@
         "Description":"Patron a state or national park",
         "SproutValue": 50,
         "Threshold": 1,
-        "Unit":"trip"
+        "Unit":"trip",
+        "Detail": "National and state parks are in need of your patronage and support. Visit one of these beautiful sites to support their continued maintenance and habitat protection."
        },
 
        {
@@ -26,7 +28,8 @@
         "Description":"Visit a local park",
         "SproutValue": 20,
         "Threshold": 1,
-        "Unit": "trip"
+        "Unit": "trip",
+        "Detail" : "Local parks are in need of your patronage and support. Visit one of these beautiful sites to support their continued maintenance and community support."
        }
     ]
 }
