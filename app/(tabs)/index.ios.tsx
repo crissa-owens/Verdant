@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { Text, View } from "react-native";
-import TaskWidget from "../components/task-widget";
+import FavoriteWidget from "../components/favorite-widget";
 import { NameContext } from "../context/name";
 import { styles } from "../styles";
-import RewardWidget from "../components/reward-widget";
+import MilestoneWidget from "../components/milestone-widget";
 
 export default function HomePage() {
   const nameCtxt = useContext(NameContext);
@@ -17,8 +17,8 @@ export default function HomePage() {
       </View>
 
       <View style={{ alignSelf: "center", alignItems: "center", rowGap: 20, width: "100%", height: 150 }}>
-        <TaskWidget/>
-        <RewardWidget/>
+        <FavoriteWidget/>
+        <MilestoneWidget/>
       </View>
     </View>
   );

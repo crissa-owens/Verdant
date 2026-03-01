@@ -1,6 +1,6 @@
 import { Image, Platform, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { Reward } from "../interfaces/reward";
-import { RewardContext } from "../context/rewards";
+import { MilestoneContext } from "../context/milestone";
 import { useContext } from "react";
 import { IconSymbol } from "./ui/icon-symbol.ios";
 
@@ -10,10 +10,11 @@ interface ExpandedRewardProps {
 }
 
 export default function ExpandedReward(props: ExpandedRewardProps) {
-    const rewardCtxt = useContext(RewardContext);
-    if (!rewardCtxt) throw new Error("Reward Context missing");
+    const milestoneCtxt = useContext(MilestoneContext);
+    if (!milestoneCtxt) throw new Error("Milestone Context missing");
     
     return (
+    <View>
         <View style={styles.expanded_reward}>
             {Platform.OS === "web" ? 
                 <View style={styles.expanded_reward}>
@@ -35,7 +36,7 @@ export default function ExpandedReward(props: ExpandedRewardProps) {
                             }}>
                             <Text style={{ fontSize: 18 }}>Back</Text>
                         </Pressable>
-                        <Pressable onPress={() => rewardCtxt.setReward(props.reward)} style={{ 
+                        <Pressable onPress={() => milestoneCtxt.setMilestone(props.reward)} style={{ 
                                 marginTop: 20, 
                                 padding: 10, 
                                 backgroundColor: "#e6e6e6", 
@@ -76,7 +77,7 @@ export default function ExpandedReward(props: ExpandedRewardProps) {
                             }}>
                             <Text style={{ fontSize: 18 }}>Back</Text>
                         </Pressable>
-                        <Pressable onPress={() => rewardCtxt.setReward(props.reward)} style={{ 
+                        <Pressable onPress={() => milestoneCtxt.setMilestone(props.reward)} style={{ 
                                 marginTop: 20, 
                                 padding: 10, 
                                 backgroundColor: "#e6e6e6", 
@@ -91,7 +92,18 @@ export default function ExpandedReward(props: ExpandedRewardProps) {
             
             
         </View>
-    )
+        <Image
+          source={{ uri: props.reward.image }}
+          style={{
+            width: "50%",
+            height: "100%",
+            borderRadius: 10,
+            overflow: "hidden",
+          }}
+          resizeMode="cover"
+        />
+      </View>
+    );
 }
 
 const styles = StyleSheet.create({

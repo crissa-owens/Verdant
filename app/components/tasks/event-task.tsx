@@ -1,23 +1,36 @@
 import { Text, View, Pressable, StyleSheet, Platform } from "react-native";
 import { Task } from "../../interfaces/task";
 import { IconSymbol } from "../ui/icon-symbol.ios";
+import { useState } from "react";
+import { SFSymbol } from "expo-symbols";
 
 
 interface EventTaskProps {
   task: Task;
   onBack: () => void;
   onSubmit: (sprouts: number) => void;
-  setFavorite: (task: Task) => void;
+  setFavorite: (task: Task | null) => void;
 }
 
 export function EventTask({ task, onBack, onSubmit, setFavorite }: EventTaskProps) {
+  const [starIcon, setStarIcon] = useState("star");
+  function handleFavorite(task: Task) {
+    if (starIcon === "star") {
+      setFavorite(task);
+      setStarIcon("star.fill");
+    } else {
+      setFavorite(null);
+      setStarIcon("star");
+    }
+  }  
+  
   return (
     <View style={styles.container}>
       <View style={styles.card}>
          <View style={{ flexDirection: "row", marginBottom: 20 }}>
                   <Text style={styles.title}>{task.Title}</Text>
-                  <Pressable onPress={() => setFavorite(task)} style={{ marginLeft: "auto" }}>
-                    <IconSymbol name="star" size={60} color="#f2c910" />
+                  <Pressable onPress={() => handleFavorite(task)} style={{ marginLeft: "auto" }}>
+                    <IconSymbol name={starIcon as SFSymbol} size={60} color="#f2c910" />
                   </Pressable>
                 </View>
         <Text style={styles.description}>{task.Description}</Text>

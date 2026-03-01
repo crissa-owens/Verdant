@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { Text, View } from "react-native";
-import TaskWidget from "../components/task-widget";
+import TaskWidget from "../components/favorite-widget";
 import { NameContext } from "../context/name";
 import { styles } from "../styles";
-import RewardWidget from "../components/reward-widget";
+import RewardWidget from "../components/milestone-widget";
 
 export default function HomePage() {
   const nameCtxt = useContext(NameContext);
