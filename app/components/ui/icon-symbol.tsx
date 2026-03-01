@@ -23,6 +23,9 @@ const MAPPING = {
   'cart': 'shopping-cart',
   'person.circle': 'person',
   'bubble.left.and.text.bubble.right': 'forum',
+  'person.fill.badge.plus': 'person-add',
+  'person.fill.badge.minus': 'person-remove',
+  'person.3.fill': 'group',
 } satisfies Partial<IconMapping>;
 
 /**

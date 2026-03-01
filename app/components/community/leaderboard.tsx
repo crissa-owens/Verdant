@@ -1,6 +1,13 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, Pressable } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { useState } from 'react';
+import { IconSymbol } from '../ui/icon-symbol';
+import AddFriend from './add-friend';
+
+interface LeaderboardProps {
+  friends: { name: string }[];
+  setFriends: (friends: { name: string }[]) => void;
+}
 
 type Entry = {
   name: string;
@@ -49,7 +56,8 @@ const mockLeaderboardData: Record<
   },
 };
 
-export function Leaderboard() {
+export function Leaderboard({ friends, setFriends }: LeaderboardProps) {
+  const [addFriendOpen, setAddFriendOpen] = useState(false);
   const [typeValue, setTypeValue] = useState<LeaderboardType>("friends");
   const [timeframeValue, setTimeframeValue] = useState<LeaderboardTimeframe>("weekly");
   const [typeopen, setTypeOpen] = useState(false);
@@ -59,9 +67,29 @@ export function Leaderboard() {
 
   const entries = mockLeaderboardData[typeValue][timeframeValue];
 
+  function handlePressEntry(entry: Entry) {
+    // Handle entry press, e.g., navigate to profile
+  }
+
+  function handleAddFriend() {
+    setAddFriendOpen(true);
+  }
+
+  if (addFriendOpen) {
+    // Render add friend UI (e.g., a modal with search functionality)
+    return (
+      <AddFriend friends={friends} setFriends={setFriends} setAddFriendOpen={setAddFriendOpen}/>
+    );
+  }
+
   return (
     <View style={styles.container}>
-        <Text style={styles.title}>Leaderboard</Text>
+        <View style={{flexDirection: "row", alignItems: "center", marginBottom: 10, justifyContent: "space-between", width: "100%"}}>
+          <Text style={styles.title}>Leaderboard</Text>
+          <Pressable onPress={() => handleAddFriend()} style={{ padding: 5 }}>
+            <IconSymbol name="person.fill.badge.plus" size={35} color="#76c796" />
+          </Pressable>
+        </View>
         <View style={styles.dropdownContainer}>
         <DropDownPicker
         open={typeopen}
@@ -126,18 +154,18 @@ export function Leaderboard() {
         />
     </View>
       <View style={styles.entry}>
-            <Text>Rank</Text>
-            <Text>Username</Text>
-            <Text>             </Text>
-            <Text>Sprouts</Text>
+            <Text style={{fontWeight: "bold"}}>Rank</Text>
+            <Text style={{fontWeight: "bold"}}>Username</Text>
+            <Text style={{fontWeight: "bold"}}>             </Text>
+            <Text style={{fontWeight: "bold"}}>Sprouts</Text>
         </View>
       {entries.map((entry, index) => (
-        <View key={index} style={styles.entry}>
+        <Pressable key={index} style={styles.entry} onPress={() => handlePressEntry(entry)}>
           <Text>{index + 1}</Text>
           <Text>{entry.name}</Text>
           <Text>             </Text>
           <Text>{entry.sprouts}</Text>
-        </View>
+        </Pressable>
       ))}
     </View>
   );
@@ -149,7 +177,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
     justifyContent: "center",
     alignItems: "center",
-    padding: 10,
+    padding: 5,
   },
   dropdownContainer: {
     flexDirection: "row",
@@ -159,9 +187,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   title: {
-    fontSize: 24,
+    fontSize: 30,
     fontWeight: "bold",
-    marginBottom: 10,
   },
   entry: {
     flexDirection: "row",

@@ -1,14 +1,16 @@
-import { Text, View, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { Leaderboard } from '../components/community/leaderboard';
-import FriendsPage from '../components/community/friends';
+import FriendsList from '../components/community/friends-list';
+import { useState } from 'react';
 
 export default function Community() {
+    const [friends, setFriends] = useState<{ name: string }[]>([]);
   return (
     <View style={styles.container}>
         <View style={styles.leaderboardContainer}>
-            <Leaderboard />
+            <Leaderboard friends={friends} setFriends={setFriends} />
         </View>
-        <FriendsPage />
+        <FriendsList friends={friends} setFriends={setFriends}/>
     </View>
   );
 }
@@ -19,6 +21,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#f4f6f8',
+        paddingTop: 10,
     },
     leaderboardContainer: {
         width: '95%',
