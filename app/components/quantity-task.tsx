@@ -24,13 +24,13 @@ export function QuantityTask({ task, onBack, onSubmit }: QuantityTaskProps) {
           </Text>
         </View>
 
-        <QuantityIncrement quantity={quantity} setQuantity={setQuantity}/>
+        <QuantityIncrement quantity={quantity} setQuantity={setQuantity} increment={task.Threshold}/>
 
         <View style={styles.buttonContainer}>
             <Pressable style={styles.button} onPress={onBack}>
             <Text style={styles.buttonText}>Back</Text>
             </Pressable>
-            <Pressable style={styles.button} onPress={() => onSubmit((task.SproutValue * quantity) / task.Threshold)}>
+            <Pressable disabled={quantity <= 0 || quantity % task.Threshold !== 0} style={styles.button} onPress={() => onSubmit(Math.floor((task.SproutValue * quantity) / task.Threshold))}>
             <Text style={styles.buttonText}>Submit</Text>
             </Pressable>
         </View>
