@@ -6,7 +6,8 @@
         "description": "Adopt an endangered animal of your choosing. Track their movement and health!",
         "cost": 10000,
         "value" : "1 animal",
-        "image" : "https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_25/2899136/190617-puppy-dog-eyes-cs-325p.jpg"
+        "image" : "https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_25/2899136/190617-puppy-dog-eyes-cs-325p.jpg",
+        "detail" :"Symbolically adopt an endagered animal through WWF. This would give you a certificate, photocard, and a fact sheet about your adoptee. The animal will help save the animals, protect their environment, and build a future where animals and humans live together."
         },
 
         {
@@ -15,7 +16,8 @@
         "description":"Donate money to a park of your choosing",
         "cost": 30,
         "value":"10 USD",
-        "image" : ""
+        "image" : "",
+        "detail" : "Contribute 10USD to a park of your choosing. This will help them maintain the beautiful sites they inhabit and allow their continued protection of local flora and fauna."
         },
 
         {
@@ -24,7 +26,8 @@
         "description":"Donate money to coral reef restoration.",
         "cost": 30,
         "value":"10 USD",
-        "image" : ""
+        "image" : "",
+        "detail": "Contribute 10USD to coral reef restoration. Coral reefs are at risk due to carbon bleaching and "
         },
 
         {
