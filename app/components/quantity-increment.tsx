@@ -3,13 +3,14 @@ import { View, StyleSheet, SafeAreaView, TextInput, Pressable, Text } from 'reac
 interface QuantityIncrementProps {
     quantity: number;
     setQuantity: (newQuantity: number) => void;
+    increment: number;
 }
-export function QuantityIncrement({ quantity, setQuantity }: QuantityIncrementProps) {
+export function QuantityIncrement({ quantity, setQuantity, increment }: QuantityIncrementProps) {
 
     return (
         <View style={styles.container}>
                 <Pressable
-                    onPress={() => setQuantity(quantity - 1)}
+                    onPress={() => setQuantity(quantity - increment)}
                     style={({ pressed }) => [ // Style prop receives a function with 'pressed' boolean
                         styles.ButtonBase,
                         {
@@ -32,7 +33,7 @@ export function QuantityIncrement({ quantity, setQuantity }: QuantityIncrementPr
                     />
                 </SafeAreaView>
             <Pressable
-                    onPress={() => setQuantity(quantity + 1)}
+                    onPress={() => setQuantity(quantity + increment)}
                     style={({ pressed }) => [ // Style prop receives function with 'pressed' boolean
                         styles.ButtonBase,
                         {

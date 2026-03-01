@@ -27,9 +27,9 @@ export function AllTasks({ sprouts, setSprouts, setFavorite }: AllTasksProps) {
   }
 
   if (selectedTask) {
-    if (selectedTask.ID >= 101 && selectedTask.ID <= 103) {
+    if (selectedTask.ID >= 101 && selectedTask.ID <= 199) {
       return <QuantityTask task={selectedTask} onBack={() => setSelectedTask(null)} onSubmit={handleSubmit} setFavorite={setFavorite}/>;
-    } else if (selectedTask.ID >= 201 && selectedTask.ID <= 203) {
+    } else if (selectedTask.ID >= 201 && selectedTask.ID <= 299) {
       return <TimeTask task={selectedTask} onBack={() => setSelectedTask(null)} onSubmit={handleSubmit}/>;
     } else {
         return <EventTask task={selectedTask} onBack={() => setSelectedTask(null)} onSubmit={handleSubmit}/>;

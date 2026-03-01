@@ -3,13 +3,14 @@ import { View, StyleSheet, SafeAreaView, TextInput, Pressable, Text } from 'reac
 interface TimeIncrementProps {
     time: number;
     setTime: (newTime: number) => void;
+    increment: number;
 }
-export function TimeIncrement({ time, setTime }: TimeIncrementProps) {
+export function TimeIncrement({ time, setTime, increment}: TimeIncrementProps) {
 
     return (
         <View style={styles.container}>
                 <Pressable
-                    onPress={() => setTime(time - 1)}
+                    onPress={() => setTime(time - increment)}
                     style={({ pressed }) => [ // Style prop receives a function with 'pressed' boolean
                         styles.ButtonBase,
                         {
@@ -17,7 +18,7 @@ export function TimeIncrement({ time, setTime }: TimeIncrementProps) {
                         },
                         
                     ]}
-                    disabled={time <= 0} // Disable the button if timeSpent is 0 or less
+                    disabled={time <= 0} // Disable the button if timeSpent is 0 or not divisible by increment
                     >
                     <Text style={styles.ButtonText}>-</Text>
                 </Pressable>
@@ -32,7 +33,7 @@ export function TimeIncrement({ time, setTime }: TimeIncrementProps) {
                     />
                 </SafeAreaView>
             <Pressable
-                    onPress={() => setTime(time + 1)}
+                    onPress={() => setTime(time + increment)}
                     style={({ pressed }) => [ // Style prop receives function with 'pressed' boolean
                         styles.ButtonBase,
                         {
