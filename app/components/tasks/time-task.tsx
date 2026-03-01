@@ -3,23 +3,35 @@ import { Pressable, StyleSheet, Text, View, Platform } from "react-native";
 import { Task } from "../../interfaces/task";
 import { TimeIncrement } from "./time-increment";
 import { IconSymbol } from "../ui/icon-symbol.ios";
+import { SFSymbol } from "expo-symbols";
 
 interface TimeTaskProps {
   task: Task;
   onBack: () => void;
   onSubmit: (sprouts: number) => void;
-  setFavorite: (task: Task) => void;
+  setFavorite: (task: Task | null) => void;
 }
 
 export function TimeTask({ task, onBack, onSubmit, setFavorite }: TimeTaskProps) {
-    const [time, setTime] = useState(0);
+    
+  const [starIcon, setStarIcon] = useState("star");
+  function handleFavorite(task: Task) {
+    if (starIcon === "star") {
+      setFavorite(task);
+      setStarIcon("star.fill");
+    } else {
+      setFavorite(null);
+      setStarIcon("star");
+    }
+  }  
+  const [time, setTime] = useState(0);
   return (
     <View style={styles.container}>
       <View style={styles.card}>
          <View style={{ flexDirection: "row", marginBottom: 20 }}>
                   <Text style={styles.title}>{task.Title}</Text>
-                  <Pressable onPress={() => setFavorite(task)} style={{ marginLeft: "auto" }}>
-                    <IconSymbol name="star" size={60} color="#f2c910" />
+                  <Pressable onPress={() => handleFavorite(task)} style={{ marginLeft: "auto" }}>
+                    <IconSymbol name={starIcon as SFSymbol} size={60} color="#f2c910" />
                   </Pressable>
                 </View>
         <Text style={styles.description}>{task.Description}</Text>
