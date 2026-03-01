@@ -14,7 +14,6 @@ export default function ExpandedReward(props: ExpandedRewardProps) {
     if (!milestoneCtxt) throw new Error("Milestone Context missing");
     
     return (
-    <View>
         <View style={styles.expanded_reward}>
             {Platform.OS === "web" ? 
                 <View style={styles.expanded_reward}>
@@ -89,20 +88,7 @@ export default function ExpandedReward(props: ExpandedRewardProps) {
                         </View>
                 </ScrollView> 
             }
-            
-            
         </View>
-        <Image
-          source={{ uri: props.reward.image }}
-          style={{
-            width: "50%",
-            height: "100%",
-            borderRadius: 10,
-            overflow: "hidden",
-          }}
-          resizeMode="cover"
-        />
-      </View>
     );
 }
 

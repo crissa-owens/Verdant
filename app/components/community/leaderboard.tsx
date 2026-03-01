@@ -1,8 +1,6 @@
 import { Text, View, StyleSheet, Pressable, Platform } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 import { useState } from "react";
-import { IconSymbol } from "../ui/icon-symbol";
-import AddFriend from "./add-friend";
 
 interface LeaderboardProps {
   friends: { name: string }[];
@@ -181,7 +179,7 @@ export function Leaderboard({ friends, setFriends }: LeaderboardProps) {
         </Pressable>
       ))}
       </View>
-    </View>
+      </View>
   );
 }
 
