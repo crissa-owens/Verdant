@@ -33,7 +33,7 @@ export default function FavoriteWidget() {
   } else {
     return (
       <View style={styles.favorite_task}>
-        <Text>No Favorite Task Selected</Text>
+        <Text style={{ color: "#6b7280" }}>No Favorite Task Selected</Text>
       </View>
     );
   }

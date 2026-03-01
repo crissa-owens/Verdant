@@ -14,7 +14,7 @@ export function QuantityIncrement({ quantity, setQuantity, increment }: Quantity
                     style={({ pressed }) => [ // Style prop receives a function with 'pressed' boolean
                         styles.ButtonBase,
                         {
-                        backgroundColor: pressed ? '#007062' : '#009688', // Darker when pressed
+                        backgroundColor: pressed ? '#216d25' : '#2e7d32', // Darker when pressed
                         },
                         
                     ]}
@@ -37,7 +37,7 @@ export function QuantityIncrement({ quantity, setQuantity, increment }: Quantity
                     style={({ pressed }) => [ // Style prop receives function with 'pressed' boolean
                         styles.ButtonBase,
                         {
-                        backgroundColor: pressed ? '#007062' : '#009688', // Darker when pressed
+                        backgroundColor: pressed ? '#216d25' : '#2e7d32', // Darker when pressed
                         },
                     ]}
                     disabled={quantity >= 100} // Disable the button if quantity is 100 or more
