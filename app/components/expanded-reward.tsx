@@ -1,5 +1,7 @@
 import { Image, Platform, Pressable, StyleSheet, Text, View } from "react-native";
 import { Reward } from "../interfaces/reward";
+import { RewardContext } from "../context/rewards";
+import { useContext } from "react";
 
 interface ExpandedRewardProps {
   reward: Reward;
@@ -7,6 +9,9 @@ interface ExpandedRewardProps {
 }
 
 export default function ExpandedReward(props: ExpandedRewardProps) {
+    const rewardCtxt = useContext(RewardContext);
+    if (!rewardCtxt) throw new Error("Reward Context missing");
+    
     return (
         <View style={styles.expanded_reward}>
             <Text style={{ fontSize: 45, fontWeight: "bold" }}>{props.reward.title}</Text>
@@ -17,6 +22,7 @@ export default function ExpandedReward(props: ExpandedRewardProps) {
                         <Text style={{ fontSize: 18, marginTop: 20 }}>{props.reward.cost} Sprouts</Text>
                         <Text style={{ fontSize: 18, marginTop: 20 }}>{props.reward.value}</Text>
                     </View>
+                    <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 20 }}>
                     <Pressable onPress={props.onBack} style={{ 
                             marginTop: 20, 
                             padding: 10, 
@@ -26,6 +32,16 @@ export default function ExpandedReward(props: ExpandedRewardProps) {
                         }}>
                         <Text style={{ fontSize: 18 }}>Back</Text>
                     </Pressable>
+                    <Pressable onPress={() => rewardCtxt.setReward(props.reward)} style={{ 
+                            marginTop: 20, 
+                            padding: 10, 
+                            backgroundColor: "#e6e6e6", 
+                            borderRadius: 10, 
+                            alignSelf: "flex-start"
+                        }}>
+                        <Text style={{ fontSize: 18 }}>Add Milestone</Text>
+                    </Pressable>
+                    </View>
                 </View>
                 <Image
                     source={{ uri: props.reward.image }}
