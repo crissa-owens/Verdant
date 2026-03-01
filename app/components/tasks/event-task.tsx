@@ -1,4 +1,4 @@
-import { Text, View, Pressable, StyleSheet } from "react-native";
+import { Text, View, Pressable, StyleSheet, Platform } from "react-native";
 import { Task } from "../../interfaces/task";
 import { IconSymbol } from "../ui/icon-symbol.ios";
 
@@ -53,7 +53,16 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   card: {
-    width: "100%",
+    ...Platform.select({
+      ios: {
+        width: "90%",
+        padding: 20,
+      },
+      web: {
+        width: "70%",
+        padding: 30,
+      },
+    }),
     backgroundColor: "#ffffff",
     borderRadius: 16,
     padding: 20,
