@@ -77,7 +77,7 @@ export default function Profile() {
                     secureTextEntry
                 />
                 <Pressable
-                    onPress={() => {setUserExists(true); handleNameChange(nameInput); setEmail(emailInput);}}
+                    onPress={() => {setUserExists(true); setUsername(usernameInput); setPassword(passwordInput);}}
                     style={styles.button_styles}
                 >
                     <Text style={{ color: "white", fontWeight: "bold" }}>Log In</Text>
