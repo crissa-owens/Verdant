@@ -2,6 +2,7 @@ import { Tabs } from 'expo-router';
 import React from 'react';
 import { IconSymbol } from '../components/ui/icon-symbol';
 import { HapticTab } from '../components/haptic-tab';
+import { SproutCounter } from '../components/counter';
 
 export default function TabLayout() {
 
@@ -10,6 +11,7 @@ export default function TabLayout() {
       screenOptions={{
               tabBarActiveTintColor: "green",
               headerShown: true,
+              headerLeft: () => <SproutCounter count={100000} />,
               tabBarButton: HapticTab,
             }}>
       <Tabs.Screen

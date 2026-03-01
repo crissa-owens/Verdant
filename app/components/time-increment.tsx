@@ -25,13 +25,13 @@ export function TimeIncrement() {
                         style={styles.input}
                         onChangeText={(text) => setTimeSpent(parseInt(text) || 0)}
                         value={timeSpent.toString()}
-                        placeholder="Enter a number"
+                        placeholder="0"
                         keyboardType="numeric" // Displays the numeric keyboard
                     />
                 </SafeAreaView>
             <Pressable
                     onPress={() => setTimeSpent(timeSpent + 1)}
-                    style={({ pressed }) => [ // Style prop receives a function with 'pressed' boolean
+                    style={({ pressed }) => [ // Style prop receives function with 'pressed' boolean
                         styles.ButtonBase,
                         {
                         backgroundColor: pressed ? '#007062' : '#009688', // Darker when pressed
