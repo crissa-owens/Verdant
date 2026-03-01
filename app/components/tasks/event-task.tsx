@@ -2,7 +2,6 @@ import { Text, View, Pressable, StyleSheet, Platform } from "react-native";
 import { Task } from "../../interfaces/task";
 import { IconSymbol } from "../ui/icon-symbol";
 import { useState } from "react";
-import { SFSymbol } from "expo-symbols";
 
 
 interface EventTaskProps {

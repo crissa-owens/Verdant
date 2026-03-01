@@ -3,7 +3,6 @@ import { Pressable, StyleSheet, Text, View, Platform } from "react-native";
 import { Task } from "../../interfaces/task";
 import { TimeIncrement } from "./time-increment";
 import { IconSymbol } from "../ui/icon-symbol";
-import { SFSymbol } from "expo-symbols";
 
 interface TimeTaskProps {
   task: Task;

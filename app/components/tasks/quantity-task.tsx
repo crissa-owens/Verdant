@@ -3,7 +3,6 @@ import { Platform, Pressable, StyleSheet, Text, View } from "react-native";
 import { Task } from "../../interfaces/task";
 import { QuantityIncrement } from "./quantity-increment";
 import { IconSymbol } from "../ui/icon-symbol";
-import { SFSymbol } from "expo-symbols";
 
 interface QuantityTaskProps {
   task: Task;
