@@ -18,7 +18,7 @@ import { TimeTask } from "./time-task";
 interface AllTasksProps {
   sprouts: number;
   setSprouts: (newSprouts: number) => void;
-  setFavorite: (task: Task) => void;
+  setFavorite: (task: Task | null) => void;
 }
 
 export function AllTasks({ sprouts, setSprouts, setFavorite }: AllTasksProps) {

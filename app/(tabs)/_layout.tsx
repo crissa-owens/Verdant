@@ -4,24 +4,24 @@ import { TouchableOpacity } from "react-native";
 import { SproutCounter } from "../components/counter";
 import { HapticTab } from "../components/haptic-tab";
 import { IconSymbol } from "../components/ui/icon-symbol";
+import { FavoriteContext } from "../context/favorite";
+import { MilestoneContext } from "../context/milestone";
 import { NameContext } from "../context/name";
-import { RewardContext } from "../context/rewards";
 import { SproutContext } from "../context/sprout";
-import { TaskContext } from "../context/task";
 import { Reward } from "../interfaces/reward";
 import { Task } from "../interfaces/task";
 
 export default function TabLayout() {
   const [sprouts, setSprouts] = React.useState(0);
   const [name, setName] = React.useState("");
-  const [task, setTask] = React.useState<Task | null>(null);
-  const [reward, setReward] = React.useState<Reward | null>(null);
+  const [favorite, setFavorite] = React.useState<Task | null>(null);
+  const [milestone, setMilestone] = React.useState<Reward | null>(null);
 
   return (
     <SproutContext.Provider value={{ sprouts, setSprouts }}>
       <NameContext.Provider value={{ name, setName }}>
-        <TaskContext.Provider value={{ task, setTask }}>
-          <RewardContext.Provider value={{ reward, setReward }}>
+        <FavoriteContext.Provider value={{ favorite, setFavorite }}>
+          <MilestoneContext.Provider value={{ milestone, setMilestone }}>
             <Tabs
               screenOptions={{
                 headerTitle: "Verdant",
@@ -72,14 +72,18 @@ export default function TabLayout() {
                 options={{
                   title: "Community",
                   tabBarIcon: ({ color }) => (
-                    <IconSymbol size={28} name="bubble.left.and.text.bubble.right" color={color} />
+                    <IconSymbol
+                      size={28}
+                      name="bubble.left.and.text.bubble.right"
+                      color={color}
+                    />
                   ),
                 }}
               />
               <Tabs.Screen name="profile" options={{ href: null }} />
             </Tabs>
-          </RewardContext.Provider>
-        </TaskContext.Provider>
+          </MilestoneContext.Provider>
+        </FavoriteContext.Provider>
       </NameContext.Provider>
     </SproutContext.Provider>
   );
