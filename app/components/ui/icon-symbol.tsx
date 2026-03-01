@@ -20,6 +20,8 @@ const MAPPING = {
   'chevron.right': 'chevron-right',
   'list.bullet': 'list',
   'leaf.fill': 'eco',
+  'cart': 'shopping-cart',
+  'person.circle': 'person',
 } satisfies Partial<IconMapping>;
 
 /**

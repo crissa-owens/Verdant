@@ -1,42 +1,61 @@
-import { SproutContext } from '../context/sprout';
-import { Tabs } from 'expo-router';
-import { IconSymbol } from '../components/ui/icon-symbol.ios';
-import { HapticTab } from '../components/haptic-tab';
+import { router, Tabs } from 'expo-router';
 import React from 'react';
+import { IconSymbol } from '../components/ui/icon-symbol';
+import { HapticTab } from '../components/haptic-tab';
+import { TouchableOpacity } from 'react-native';
+import { SproutContext } from '../context/sprout';
 import { SproutCounter } from '../components/counter';
+import { NameContext } from '../context/name';
 
 export default function TabLayout() {
   const [sprouts, setSprouts] = React.useState(0);
+  const [name, setName] = React.useState("");
 
   return (
-    <SproutContext.Provider value={{ sprouts, setSprouts }}>
-      <Tabs
-        screenOptions={{
-          tabBarActiveTintColor: "green",
-          headerShown: true,
-          headerLeft: () => <SproutCounter count={sprouts} />,
-          tabBarButton: HapticTab,
+  <SproutContext.Provider value={{ sprouts, setSprouts }}>
+  <NameContext.Provider value={{ name, setName }}>
+    <Tabs
+      screenOptions={{
+              headerTitle: "Verdant",
+              headerTitleAlign: "center",
+              headerLeft: () => <SproutCounter count={sprouts} />,
+              headerRight: () => 
+              <TouchableOpacity
+                onPress={() => router.push("/profile")}
+                style={{ marginRight: 15 }}>
+                <IconSymbol name="person.circle" size={28} color="black" />
+              </TouchableOpacity>,
+              tabBarActiveTintColor: "green",
+              headerShown: true,
+              tabBarButton: HapticTab,
+            }}>
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: 'Home',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
         }}
-      >
-        <Tabs.Screen
-          name="index"
-          options={{
-            title: 'Home',
-            tabBarIcon: ({ color }) => (
-              <IconSymbol size={28} name="house.fill" color={color} />
-            ),
-          }}
-        />
-        <Tabs.Screen
-          name="tasks"
-          options={{
-            title: 'Tasks',
-            tabBarIcon: ({ color }) => (
-              <IconSymbol size={28} name="list.bullet" color={color} />
-            ),
-          }}
-        />
-      </Tabs>
-    </SproutContext.Provider>
+      />
+      <Tabs.Screen
+        name="tasks"
+        options={{
+          title: 'Tasks',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="list.bullet" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="shop"
+        options={{
+          title: 'Shop',
+          tabBarIcon: ({ color }) => <IconSymbol size={28} name="cart" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{ href: null}}/>
+    </Tabs>
+  </NameContext.Provider>
+  </SproutContext.Provider>
+
   );
 }
