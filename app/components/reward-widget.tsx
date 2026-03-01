@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { IconSymbol } from "./ui/icon-symbol";
 import { useContext } from "react";
 import { RewardContext } from "../context/rewards";
+import ProgressBar from "./progress-bar";
 
 export default function RewardWidget() {
     const rewardCtxt = useContext(RewardContext);
@@ -18,6 +19,7 @@ export default function RewardWidget() {
                     <IconSymbol name="star" size={36} color="#f2c910" />
                 </TouchableOpacity>
                 <Text style={{ marginBottom: 10 }}>{reward.description}</Text>
+                <ProgressBar/>
             </View> 
         )
     } else {
@@ -38,6 +40,6 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         padding: 20,
         width: "50%",
-        height: 100,
+        height: 150,
     }
 })
