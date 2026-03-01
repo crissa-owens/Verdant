@@ -2,6 +2,7 @@ import { Image, Platform, Pressable, ScrollView, StyleSheet, Text, View } from "
 import { Reward } from "../interfaces/reward";
 import { RewardContext } from "../context/rewards";
 import { useContext } from "react";
+import { IconSymbol } from "./ui/icon-symbol.ios";
 
 interface ExpandedRewardProps {
   reward: Reward;
@@ -21,7 +22,7 @@ export default function ExpandedReward(props: ExpandedRewardProps) {
                         <View style={{ width: "50%", height: "100%", paddingRight: 20, justifyContent: "space-between" }}>
                         <Text style={{ fontSize: 18 }}>{props.reward.description}</Text>
                         <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 20 }}>
-                            <Text style={{ fontSize: 18, marginTop: 20 }}>{props.reward.cost} Sprouts</Text>
+                            <Text style={{ fontSize: 18, marginTop: 20 }}>{props.reward.cost} Sprouts <IconSymbol name="leaf.fill" size={16} color="#76c796"/></Text>
                             <Text style={{ fontSize: 18, marginTop: 20 }}>{props.reward.value}</Text>
                         </View>
                         <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 20 }}>
@@ -62,7 +63,7 @@ export default function ExpandedReward(props: ExpandedRewardProps) {
                     />
                     <Text style={{ fontSize: 18 }}>{props.reward.description}</Text>
                         <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 20 }}>
-                            <Text style={{ fontSize: 18, marginTop: 20 }}>{props.reward.cost} Sprouts</Text>
+                            <Text style={{ fontSize: 18, marginTop: 20 }}>{props.reward.cost} Sprouts <IconSymbol name="leaf.fill" size={16} color="#76c796"/></Text>
                             <Text style={{ fontSize: 18, marginTop: 20 }}>{props.reward.value}</Text>
                         </View> 
                         <View style={{ flexDirection: "row", justifyContent: "space-between", marginTop: 20 }}>

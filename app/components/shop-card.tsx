@@ -1,5 +1,6 @@
 import { Image, Platform, Pressable, StyleSheet, Text, View } from "react-native";
 import { Reward } from "../interfaces/reward";
+import { IconSymbol } from "./ui/icon-symbol";
 
 interface ShopCardProps {
   reward: Reward;
@@ -19,7 +20,7 @@ export default function ShopCard(props: ShopCardProps) {
       </View>
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         <Text style={{ padding: 10 }}>{reward.title}</Text>
-        <Text style={{ padding: 10 }}>{reward.cost} Sprouts</Text>
+        <Text style={{ padding: 10 }}>{reward.cost} Sprouts <IconSymbol name="leaf.fill" size={16} color="#76c796"/></Text>
       </View>
     </Pressable>
   );

@@ -1,6 +1,10 @@
 import { StyleSheet, Platform } from "react-native";
 
 export const styles = StyleSheet.create({
+    text: {
+        fontFamily: "Roboto",
+        fontSize: 18,
+    },
     title: {
         fontSize: 30,
         fontWeight: "bold",
