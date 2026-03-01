@@ -22,7 +22,7 @@ export default function MilestoneWidget() {
             milestoneCtxt.setMilestone(null);
           }}
         >
-          <IconSymbol name="star" size={36} color="#f2c910" />
+          <IconSymbol name="star.fill" size={36} color="#f2c910" />
         </TouchableOpacity>
         <Text style={{ marginBottom: 10 }}>{milestone.description}</Text>
         <ProgressBar />

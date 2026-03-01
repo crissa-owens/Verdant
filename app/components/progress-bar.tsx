@@ -1,18 +1,18 @@
 import React, { useContext } from "react";
 import { View } from "react-native";
-import { RewardContext } from "../context/milestone";
+import { MilestoneContext } from "../context/milestone";
 import { SproutContext } from "../context/sprout";
 
 export default function ProgressBar() {
   const sproutCtxt = useContext(SproutContext);
-  const rewardCtxt = useContext(RewardContext);
+  const rewardCtxt = useContext(MilestoneContext);
   if (!sproutCtxt) throw new Error("Sprout Context missing");
   if (!rewardCtxt) throw new Error("Reward Context missing");
 
-  const progress = rewardCtxt.reward
-    ? Math.min((sproutCtxt.sprouts / Number(rewardCtxt.reward.cost)) * 100, 100)
+  const progress = rewardCtxt.milestone
+    ? Math.min((sproutCtxt.sprouts / Number(rewardCtxt.milestone.cost)) * 100, 100)
     : 0;
-  if (!rewardCtxt.reward) return null;
+  if (!rewardCtxt.milestone) return null;
   return (
     <View
       style={{

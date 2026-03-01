@@ -6,7 +6,7 @@ import {
     Text,
     View
 } from "react-native";
-import { RewardContext } from "../context/milestone";
+import { MilestoneContext } from "../context/milestone";
 import { Reward } from "../interfaces/reward";
 
 interface ExpandedRewardProps {
@@ -15,8 +15,8 @@ interface ExpandedRewardProps {
 }
 
 export default function ExpandedReward(props: ExpandedRewardProps) {
-  const rewardCtxt = useContext(RewardContext);
-  if (!rewardCtxt) throw new Error("Reward Context missing");
+  const milestoneCtxt = useContext(MilestoneContext);
+  if (!milestoneCtxt) throw new Error("Milestone Context missing");
 
   return (
     <View style={styles.expanded_reward}>
@@ -74,7 +74,7 @@ export default function ExpandedReward(props: ExpandedRewardProps) {
               <Text style={{ fontSize: 18 }}>Back</Text>
             </Pressable>
             <Pressable
-              onPress={() => rewardCtxt.setReward(props.reward)}
+              onPress={() => milestoneCtxt.setMilestone(props.reward)}
               style={{
                 marginTop: 20,
                 padding: 10,
