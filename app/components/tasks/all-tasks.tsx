@@ -16,8 +16,8 @@ import { QuantityTask } from "./quantity-task";
 import { TimeTask } from "./time-task";
 
 interface AllTasksProps {
-  sprouts: number;
-  setSprouts: (newSprouts: number) => void;
+    sprouts: number;
+    setSprouts: (newSprouts: number) => void;
 }
 
 export function AllTasks({ sprouts, setSprouts }: AllTasksProps) {
@@ -33,30 +33,12 @@ export function AllTasks({ sprouts, setSprouts }: AllTasksProps) {
   }
 
   if (selectedTask) {
-    if (selectedTask.ID >= 101 && selectedTask.ID <= 103) {
-      return (
-        <QuantityTask
-          task={selectedTask}
-          onBack={() => setSelectedTask(null)}
-          onSubmit={handleSubmit}
-        />
-      );
-    } else if (selectedTask.ID >= 201 && selectedTask.ID <= 203) {
-      return (
-        <TimeTask
-          task={selectedTask}
-          onBack={() => setSelectedTask(null)}
-          onSubmit={handleSubmit}
-        />
-      );
+    if (selectedTask.ID >= 101 && selectedTask.ID <= 199) {
+      return <QuantityTask task={selectedTask} onBack={() => setSelectedTask(null)} onSubmit={handleSubmit} />;
+    } else if (selectedTask.ID >= 201 && selectedTask.ID <= 299) {
+      return <TimeTask task={selectedTask} onBack={() => setSelectedTask(null)} onSubmit={handleSubmit}/>;
     } else {
-      return (
-        <EventTask
-          task={selectedTask}
-          onBack={() => setSelectedTask(null)}
-          onSubmit={handleSubmit}
-        />
-      );
+        return <EventTask task={selectedTask} onBack={() => setSelectedTask(null)} onSubmit={handleSubmit}/>;
     }
   }
 
@@ -66,16 +48,15 @@ export function AllTasks({ sprouts, setSprouts }: AllTasksProps) {
         <Pressable
           key={task.ID}
           onPress={() => {
-            handleTaskPress(task);
-          }}
+              handleTaskPress(task)}}
         >
-          <View style={styles.container}>
-            <Text style={styles.title}>{task.Title}</Text>
-            <Text style={styles.description}>{task.Description}</Text>
-            <Text style={styles.sprouts}>
-              {task.SproutValue} Sprouts per {task.Threshold} {task.Unit}
-            </Text>
-          </View>
+            <View style={styles.container}>
+                <Text style={styles.title}>{task.Title}</Text>
+                <Text style={styles.description}>{task.Description}</Text>
+                <Text style={styles.sprouts}>
+                    {task.SproutValue} Sprouts per {task.Threshold} {task.Unit}
+                </Text>
+            </View>
         </Pressable>
       ))}
     </ScrollView>
@@ -83,38 +64,39 @@ export function AllTasks({ sprouts, setSprouts }: AllTasksProps) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    justifyContent: "center",
-    alignItems: "center",
-    alignSelf: "center",
-    backgroundColor: "#e6e6e6",
-    borderRadius: 10,
-    ...Platform.select({
-      ios: {
-        margin: 10,
-        width: "90%",
-        height: 100,
-      },
-      web: {
-        padding: 10,
-        margin: 30,
-        width: "30%",
-      },
-    }),
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 5,
-  },
-  description: {
-    fontSize: 14,
-    color: "#555",
-    marginBottom: 5,
-    paddingHorizontal: 10,
-  },
-  sprouts: {
-    fontSize: 12,
-    color: "#888",
-  },
+    container: {
+        justifyContent: "center",
+        alignItems: "center",
+        alignSelf: "center",
+        backgroundColor: "#e6e6e6",
+        borderRadius: 10,
+        ...Platform.select({
+            ios: {
+                margin: 10,
+                width: "90%",
+                height: 100,
+            },
+            web: {
+                padding: 10,
+                margin: 30,
+                width: "30%",
+            },
+        })
+    }
+    ,
+    title: {
+        fontSize: 18,
+        fontWeight: "bold",
+        marginBottom: 5,
+    },
+    description: {
+        fontSize: 14,
+        color: "#555",
+        marginBottom: 5,
+        paddingHorizontal: 10,
+    },
+    sprouts: {
+        fontSize: 12,
+        color: "#888",
+    },
 });
