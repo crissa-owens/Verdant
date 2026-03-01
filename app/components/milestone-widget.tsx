@@ -12,7 +12,7 @@ export default function MilestoneWidget() {
 
   if (milestone) {
     return (
-      <View style={styles.favorite_task}>
+      <View style={styles.milestone}>
         <Text style={{ fontWeight: "bold", marginBottom: 10 }}>
           {milestone.title}
         </Text>
@@ -30,7 +30,7 @@ export default function MilestoneWidget() {
     );
   } else {
     return (
-      <View style={styles.favorite_task}>
+      <View style={styles.milestone}>
         <Text>No Milestone Selected</Text>
       </View>
     );
@@ -38,14 +38,19 @@ export default function MilestoneWidget() {
 }
 
 const styles = StyleSheet.create({
-  favorite_task: {
-    position: "relative",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: "#e6e6e6",
-    borderRadius: 10,
-    padding: 20,
-    width: "50%",
-    height: 150,
-  },
+  milestone: {
+  position: "relative",
+  backgroundColor: "#ffffff",
+  borderRadius: 20,
+  padding: 24,
+  width: "90%",
+  maxWidth: 600,
+  minHeight: 160,
+
+  shadowColor: "#4682B4",
+  shadowOpacity: 0.12,
+  shadowRadius: 12,
+  shadowOffset: { width: 0, height: 6 },
+  elevation: 4,
+},
 });

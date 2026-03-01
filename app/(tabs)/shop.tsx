@@ -1,5 +1,5 @@
 import React from "react";
-import { FlatList, Platform, ScrollView, Text, View } from "react-native";
+import { FlatList, Platform, Text, View } from "react-native";
 import Divider from "../components/ui/divider";
 import ShopCard from "../components/shop-card";
 import { Reward } from "../interfaces/reward";
