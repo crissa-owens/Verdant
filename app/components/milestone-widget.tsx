@@ -31,7 +31,7 @@ export default function MilestoneWidget() {
   } else {
     return (
       <View style={styles.milestone}>
-        <Text>No Milestone Selected</Text>
+        <Text style={{ color: "#6b7280" }}>No Milestone Selected</Text>
       </View>
     );
   }

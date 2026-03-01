@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Pressable, StyleSheet, Text, View, Platform } from "react-native";
 import { Task } from "../../interfaces/task";
 import { TimeIncrement } from "./time-increment";
-import { IconSymbol } from "../ui/icon-symbol.ios";
+import { IconSymbol } from "../ui/icon-symbol";
 import { SFSymbol } from "expo-symbols";
 
 interface TimeTaskProps {
@@ -13,7 +13,8 @@ interface TimeTaskProps {
 }
 
 export function TimeTask({ task, onBack, onSubmit, setFavorite }: TimeTaskProps) {
-    
+  const [time, setTime] = useState(0);
+  const isDisabled = time <= 0 || time % task.Threshold !== 0;
   const [starIcon, setStarIcon] = useState("star");
   function handleFavorite(task: Task) {
     if (starIcon === "star") {
@@ -24,16 +25,25 @@ export function TimeTask({ task, onBack, onSubmit, setFavorite }: TimeTaskProps)
       setStarIcon("star");
     }
   }  
-  const [time, setTime] = useState(0);
+  function handleSubmit() {
+    onSubmit(Math.floor((task.SproutValue * time) / task.Threshold));
+  }
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-         <View style={{ flexDirection: "row", marginBottom: 20 }}>
-                  <Text style={styles.title}>{task.Title}</Text>
-                  <Pressable onPress={() => handleFavorite(task)} style={{ marginLeft: "auto" }}>
-                    <IconSymbol name={starIcon as SFSymbol} size={60} color="#f2c910" />
-                  </Pressable>
-                </View>
+         <View style={styles.headerRow}>
+  <Text style={styles.title} numberOfLines={2}>
+    {task.Title}
+  </Text>
+
+  <Pressable onPress={() => handleFavorite(task)}>
+    <IconSymbol
+      name={starIcon as "star" | "star.fill"}
+      size={34}
+      color={starIcon === "star.fill" ? "#f2c910" : "#94a3b8"}
+    />
+  </Pressable>
+</View>
         <Text style={styles.description}>{task.Description}</Text>
 
         <View style={styles.rewardContainer}>
@@ -41,15 +51,25 @@ export function TimeTask({ task, onBack, onSubmit, setFavorite }: TimeTaskProps)
             {task.SproutValue} Sprouts per {task.Threshold} {task.Unit}
           </Text>
         </View>
-
-        <TimeIncrement time={time} setTime={setTime} increment={task.Threshold}/>
+        <View style={{ marginBottom: 30 }}>
+          <TimeIncrement time={time} setTime={setTime} increment={task.Threshold}/>
+        </View>
         <View style={styles.buttonContainer}>
-          <Pressable style={styles.button} onPress={onBack}>
-            <Text style={styles.buttonText}>Back</Text>
-            </Pressable>
-            <Pressable disabled={time <= 0 || time % task.Threshold !== 0} style={styles.button} onPress={() => onSubmit(Math.floor((task.SproutValue * time) / task.Threshold))}>
-            <Text style={styles.buttonText}>Submit</Text>
+          <Pressable style={[styles.button, styles.backButton]} onPress={onBack}>
+            <Text style={[styles.buttonText, styles.backButtonText]}>
+              Back
+            </Text>
           </Pressable>
+          <Pressable
+              disabled={isDisabled}
+              style={[
+                styles.button,
+                isDisabled ? styles.disabledButton : styles.submitButton,
+              ]}
+              onPress={handleSubmit}
+            >
+              <Text style={styles.buttonText}>Submit</Text>
+            </Pressable>
         </View>
       </View>
     </View>
@@ -59,67 +79,89 @@ export function TimeTask({ task, onBack, onSubmit, setFavorite }: TimeTaskProps)
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f4f6f8",
+    backgroundColor: "#F5FFFA",
     justifyContent: "center",
     alignItems: "center",
-    padding: 20,
+    paddingHorizontal: 20,
   },
   card: {
     ...Platform.select({
-          ios: {
-            width: "90%",
-            padding: 20,
-          },
-          web: {
-            width: "70%",
-            padding: 30,
-          },
+      ios: { width: "92%" },
+      web: { width: "70%", maxWidth: 900 },
     }),
+
     backgroundColor: "#ffffff",
-    borderRadius: 16,
-    padding: 20,
-    shadowColor: "#000",
-    shadowOpacity: 0.1,
-    shadowRadius: 10,
-    shadowOffset: { width: 0, height: 4 },
-    elevation: 5,
+    borderRadius: 24,
+    padding: 30,
+
+    shadowColor: "#4682B4",
+    shadowOpacity: 0.12,
+    shadowRadius: 18,
+    shadowOffset: { width: 0, height: 8 },
+    elevation: 6,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: "700",
-    marginBottom: 10,
-  },
-  description: {
-    fontSize: 16,
-    color: "#555",
-    marginBottom: 20,
-  },
-  rewardContainer: {
-    backgroundColor: "#e8f5e9",
-    padding: 12,
-    borderRadius: 12,
-    marginBottom: 20,
-  },
-  rewardText: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: "#2e7d32",
-  },
+headerRow: {
+  flexDirection: "row",
+  alignItems: "center",
+  justifyContent: "space-between",
+  marginBottom: 20,
+},
+
+title: {
+  fontSize: 26,
+  fontWeight: "700",
+  color: "#2F4F4F",
+  flexShrink: 1,
+  marginRight: 12,
+},
+description: {
+  fontSize: 16,
+  lineHeight: 22,
+  color: "#475569",
+  marginBottom: 24,
+},
+rewardContainer: {
+  backgroundColor: "#E8F5E9",
+  paddingVertical: 14,
+  paddingHorizontal: 18,
+  borderRadius: 16,
+  marginBottom: 30,
+},
+
+rewardText: {
+  fontSize: 16,
+  fontWeight: "600",
+  color: "#2E8B57",
+},
   buttonContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  button: {
-    marginTop: 20,
-    backgroundColor: "#222",
-    paddingVertical: 12,
-    borderRadius: 12,
-    alignItems: "center",
-    minWidth: 100,
-  },
-  buttonText: {
-    color: "#fff",
-    fontSize: 16,
-    fontWeight: "600",
-  },
+  flexDirection: "row",
+  justifyContent: "space-between",
+  gap: 20,
+},
+
+button: {
+  flex: 1,
+  paddingVertical: 14,
+  borderRadius: 16,
+  alignItems: "center",
+},
+backButton: {
+  backgroundColor: "#e2e8f0",
+},
+
+submitButton: {
+  backgroundColor: "#2E8B57",
+},
+
+disabledButton: {
+  backgroundColor: "#9ca3af",
+},
+buttonText: {
+  fontSize: 16,
+  fontWeight: "600",
+  color: "#ffffff",
+},
+backButtonText: {
+  color: "#334155",
+},
 });
