@@ -1,4 +1,5 @@
-import { Text, View, StyleSheet, Platform } from "react-native";
+import { Text, View } from "react-native";
+import { styles } from "../styles";
 import ProgressBar from "../components/progress-bar";
 
 export default function HomePage() {
@@ -18,23 +19,3 @@ export default function HomePage() {
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        justifyContent: "center",
-        alignItems: "center",
-        alignSelf: "center",
-        backgroundColor: "#e6e6e6",
-        borderRadius: 10,
-        ...Platform.select({
-            ios: {
-                margin: 20,
-                width: "70%",
-                height: 100,
-            },
-            web: {
-                padding: 20,
-                margin: 30,
-                width: "30%",
-            },
-        })
-    }})

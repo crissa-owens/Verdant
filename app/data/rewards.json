@@ -1,0 +1,57 @@
+{
+    "rewards" : [
+        {
+        "title": "Adopt an Animal",
+        "id": 901,
+        "description": "Adopt an endangered animal of your choosing. Track their movement and health!",
+        "cost": 10000,
+        "value" : "1 animal",
+        "image" : "https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_25/2899136/190617-puppy-dog-eyes-cs-325p.jpg"
+        },
+
+        {
+        "title": "Donate to Parks",
+        "id": 902,
+        "description":"Donate money to a park of your choosing",
+        "cost": 30,
+        "value":"10 USD",
+        "image" : ""
+        },
+
+        {
+        "title":"Donate to Coral Reef Restoration",
+        "id": 903,
+        "description":"Donate money to coral reef restoration.",
+        "cost": 30,
+        "value":"10 USD",
+        "image" : ""
+        },
+
+        {
+        "title":"Plant a Tree",
+        "id": 904,
+        "description": "Plant a tree!",
+        "cost": 10,
+        "value": "1 tree",
+        "image": ""
+        },
+
+        {
+        "title": "Donate to Animal Rehabilitiation",
+        "id": 905,
+        "description": "Donate money to animal rehabilitation clinics and organizations",
+        "cost": 30,
+        "value":"10 USD",
+        "image": ""
+        },
+
+        {
+        "title": "Donate to Sustainable Research",
+        "id": 906,
+        "description": "Donate money to furthering reseach in sustainable goals of your choosing.",
+        "cost": 30,
+        "value":"10 USD",
+        "image": ""
+        }
+    ]
+}
