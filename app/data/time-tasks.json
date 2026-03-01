@@ -7,7 +7,8 @@
         "Description":"Donate your time to environmental cleanup including highways and beaches",
         "SproutValue": 50,
         "Threshold": 1,
-        "Unit":"hour"
+        "Unit":"hour",
+        "Detail": "Donate your time to making the environment a healthier place to be by cleaning up the litter all around us. Either on your own or with an organization, participate in beach cleanup, highway cleanup, or any other local area of concern."
         },
 
         {
@@ -16,7 +17,8 @@
         "Description": "Donate your time to environmental organizations including animal shelters",
         "SproutValue": 50,
         "Threshold": 1,
-        "Unit":"hour"
+        "Unit":"hour",
+        "Detail": "Donate your time to organizations that support the environment and your environmental goals. This can include animal shelters, recycling and upcycling organizations, environmental research, and so much more!"
         },
 
         {
@@ -25,7 +27,8 @@
         "Description":"Spend time gardening and contributing to a greener environment",
         "SproutValue": 20,
         "Threshold": 1,
-        "Unit":"hour"
+        "Unit":"hour",
+        "Detail" : "Donate your time to planting and revitalizing the earth by enriching it with more plants and greenery. Take care of existing life and plant new by gardening."
         }
     ]
 }
