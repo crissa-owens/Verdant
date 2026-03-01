@@ -1,6 +1,7 @@
 import { ScrollView, Text, View, Image, TextInput, Pressable } from "react-native";
 import { styles } from "../styles";
 import React from "react";
+import { NameContext } from "../context/name";
 
 export default function Profile() {
     const [userExists, setUserExists] = React.useState(false);
@@ -9,10 +10,18 @@ export default function Profile() {
     const [password, setPassword] = React.useState("");
     const [passwordInput, setPasswordInput] = React.useState("");
 
-    const [name, setName] = React.useState("");
     const [nameInput, setNameInput] = React.useState("");
     const [email, setEmail] = React.useState("");
     const [emailInput, setEmailInput] = React.useState("");
+
+    const contextValue = React.useContext(NameContext);
+
+    function handleNameChange(text: string) {
+        if (contextValue) {
+            contextValue.setName(text);
+        }
+    }
+        
 
     if (userExists){
         return (
@@ -24,7 +33,7 @@ export default function Profile() {
                         resizeMode="cover" />
                     </View>
                     <View style={{ justifyContent: "center", alignItems: "center"}}>
-                        <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 10 }}>Name is: {name}</Text>
+                        <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 10 }}>Name is: {contextValue?.name}</Text>
                         <TextInput 
                             placeholder="Name" 
                             value={nameInput}
@@ -38,7 +47,7 @@ export default function Profile() {
                             onChangeText={(text) => setEmailInput(text)}
                         />
                         <Pressable
-                            onPress={() => {setName(nameInput); setEmail(emailInput);}}
+                            onPress={() => {handleNameChange(nameInput); setEmail(emailInput);}}
                             style={styles.button_styles}
                         >
                             <Text style={{ color: "white", fontWeight: "bold" }}>Update Profile</Text>
@@ -68,7 +77,7 @@ export default function Profile() {
                     secureTextEntry
                 />
                 <Pressable
-                    onPress={() => {setUserExists(true); setName(nameInput); setEmail(emailInput);}}
+                    onPress={() => {setUserExists(true); handleNameChange(nameInput); setEmail(emailInput);}}
                     style={styles.button_styles}
                 >
                     <Text style={{ color: "white", fontWeight: "bold" }}>Log In</Text>

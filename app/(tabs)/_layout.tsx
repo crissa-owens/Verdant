@@ -5,13 +5,15 @@ import { HapticTab } from '../components/haptic-tab';
 import { TouchableOpacity } from 'react-native';
 import { SproutContext } from '../context/sprout';
 import { SproutCounter } from '../components/counter';
-
+import { NameContext } from '../context/name';
 
 export default function TabLayout() {
   const [sprouts, setSprouts] = React.useState(0);
+  const [name, setName] = React.useState("");
 
   return (
   <SproutContext.Provider value={{ sprouts, setSprouts }}>
+  <NameContext.Provider value={{ name, setName }}>
     <Tabs
       screenOptions={{
               headerTitle: "Verdant",
@@ -52,6 +54,7 @@ export default function TabLayout() {
         name="profile"
         options={{ href: null}}/>
     </Tabs>
+  </NameContext.Provider>
   </SproutContext.Provider>
 
   );
