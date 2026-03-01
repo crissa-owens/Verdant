@@ -20,8 +20,6 @@ export default function HomePage() {
       </View>
 
       <View style={{ alignSelf: "center", alignItems: "center", width: "70%" }}>
-        <Text style={{ margin: 10 }}>Progress to Next Task</Text>
-        <ProgressBar />
         <TaskWidget task={taskCtxt.task} />
       </View>
     </View>
