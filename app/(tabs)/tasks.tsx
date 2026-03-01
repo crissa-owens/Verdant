@@ -1,4 +1,4 @@
-import { AllTasks } from "../components/all-tasks";
+import { AllTasks } from "../components/tasks/all-tasks";
 import { SproutContext } from "../context/sprout";
 import { useContext } from "react";
 import { TaskContext } from "../context/task";

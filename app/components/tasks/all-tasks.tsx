@@ -1,12 +1,19 @@
 import { useState } from "react";
-import { Pressable, Text, View, StyleSheet, Platform, ScrollView } from "react-native";
-import { TimeTask } from "./time-task";
-import { TimeTasks } from "../data/time-tasks.json";
-import { QuantityTasks } from "../data/quantity-tasks.json";
-import { EventTasks } from "../data/event-tasks.json";
-import { Task } from "../interfaces/task";
+import {
+  Platform,
+  Pressable,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+import { EventTasks } from "../../data/event-tasks.json";
+import { QuantityTasks } from "../../data/quantity-tasks.json";
+import { TimeTasks } from "../../data/time-tasks.json";
+import { Task } from "../../interfaces/task";
 import { EventTask } from "./event-task";
 import { QuantityTask } from "./quantity-task";
+import { TimeTask } from "./time-task";
 
 interface AllTasksProps {
     sprouts: number;

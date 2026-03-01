@@ -1,27 +1,27 @@
-import { Text, View, Pressable, StyleSheet } from "react-native";
-import { TimeIncrement } from "./time-increment";
 import { useState } from "react";
-import { Task } from "../interfaces/task";
-import { IconSymbol } from "./ui/icon-symbol";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Task } from "../../interfaces/task";
+import { QuantityIncrement } from "./quantity-increment";
+import { IconSymbol } from "../ui/icon-symbol.ios";
 
-interface TimeTaskProps {
+interface QuantityTaskProps {
   task: Task;
   onBack: () => void;
   onSubmit: (sprouts: number) => void;
   setFavorite: (task: Task) => void;
 }
 
-export function TimeTask({ task, onBack, onSubmit, setFavorite }: TimeTaskProps) {
-    const [time, setTime] = useState(0);
+export function QuantityTask({ task, onBack, onSubmit, setFavorite }: QuantityTaskProps) {
+    const [quantity, setQuantity] = useState(0);
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-         <View style={{ flexDirection: "row", marginBottom: 20 }}>
-                  <Text style={styles.title}>{task.Title}</Text>
-                  <Pressable onPress={() => setFavorite(task)} style={{ marginLeft: "auto" }}>
-                    <IconSymbol name="star" size={60} color="#f2c910" />
-                  </Pressable>
-                </View>
+        <View style={{ flexDirection: "row", marginBottom: 20 }}>
+          <Text style={styles.title}>{task.Title}</Text>
+          <Pressable onPress={() => setFavorite(task)} style={{ marginLeft: "auto" }}>
+            <IconSymbol name="star" size={60} color="#f2c910" />
+          </Pressable>
+        </View>
         <Text style={styles.description}>{task.Description}</Text>
 
         <View style={styles.rewardContainer}>
@@ -30,14 +30,15 @@ export function TimeTask({ task, onBack, onSubmit, setFavorite }: TimeTaskProps)
           </Text>
         </View>
 
-        <TimeIncrement time={time} setTime={setTime} increment={task.Threshold}/>
+        <QuantityIncrement quantity={quantity} setQuantity={setQuantity} increment={task.Threshold}/>
+
         <View style={styles.buttonContainer}>
-            <Pressable style={styles.button} onPress={onBack}>
+          <Pressable style={styles.button} onPress={onBack}>
             <Text style={styles.buttonText}>Back</Text>
             </Pressable>
-            <Pressable disabled={time <= 0 || time % task.Threshold !== 0} style={styles.button} onPress={() => onSubmit(Math.floor((task.SproutValue * time) / task.Threshold))}>
+            <Pressable disabled={quantity <= 0 || quantity % task.Threshold !== 0} style={styles.button} onPress={() => onSubmit(Math.floor((task.SproutValue * quantity) / task.Threshold))}>
             <Text style={styles.buttonText}>Submit</Text>
-            </Pressable>
+          </Pressable>
         </View>
       </View>
     </View>

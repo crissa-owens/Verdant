@@ -1,16 +1,18 @@
-import { Text, View, Pressable, StyleSheet } from "react-native";
-import { Task } from "../interfaces/task";
-import { IconSymbol } from "./ui/icon-symbol.ios";
+import { useState } from "react";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Task } from "../../interfaces/task";
+import { TimeIncrement } from "./time-increment";
+import { IconSymbol } from "../ui/icon-symbol.ios";
 
-
-interface EventTaskProps {
+interface TimeTaskProps {
   task: Task;
   onBack: () => void;
   onSubmit: (sprouts: number) => void;
   setFavorite: (task: Task) => void;
 }
 
-export function EventTask({ task, onBack, onSubmit, setFavorite }: EventTaskProps) {
+export function TimeTask({ task, onBack, onSubmit, setFavorite }: TimeTaskProps) {
+    const [time, setTime] = useState(0);
   return (
     <View style={styles.container}>
       <View style={styles.card}>
@@ -28,13 +30,14 @@ export function EventTask({ task, onBack, onSubmit, setFavorite }: EventTaskProp
           </Text>
         </View>
 
+        <TimeIncrement time={time} setTime={setTime} increment={task.Threshold}/>
         <View style={styles.buttonContainer}>
-            <Pressable style={styles.button} onPress={onBack}>
+          <Pressable style={styles.button} onPress={onBack}>
             <Text style={styles.buttonText}>Back</Text>
             </Pressable>
-            <Pressable style={styles.button} onPress={() => onSubmit(task.SproutValue / task.Threshold)}>
+            <Pressable disabled={time <= 0 || time % task.Threshold !== 0} style={styles.button} onPress={() => onSubmit(Math.floor((task.SproutValue * time) / task.Threshold))}>
             <Text style={styles.buttonText}>Submit</Text>
-            </Pressable>
+          </Pressable>
         </View>
       </View>
     </View>

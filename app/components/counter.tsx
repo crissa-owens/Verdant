@@ -1,22 +1,22 @@
-import { Text, View, StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { IconSymbol } from "./ui/icon-symbol";
 
 export function SproutCounter({ count }: { count: number }) {
-    return (
-        <View style={styles.container}>
-            <IconSymbol
-                name="leaf.fill"
-                color="#76c796"
-                style={{ width: 25, height: 25 }}
-            />
-            <Text style={{ fontSize: 18, fontWeight: 'bold' }}> {count} </Text>
-        </View>
-    );
+  return (
+    <View style={styles.container}>
+      <IconSymbol
+        name="leaf.fill"
+        color="#76c796"
+        style={{ width: 25, height: 25 }}
+      />
+      <Text style={{ fontSize: 18, fontWeight: "bold" }}> {count} </Text>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
+    flexDirection: "row",
     backgroundColor: "#ecebeb",
     justifyContent: "space-between",
     alignItems: "center",

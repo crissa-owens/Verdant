@@ -1,28 +1,25 @@
 import { Text, View, Pressable, StyleSheet } from "react-native";
-import { QuantityIncrement } from "./quantity-increment";
-import { useState } from "react";
-import { Task } from "../interfaces/task";
-import { IconSymbol } from "./ui/icon-symbol";
+import { Task } from "../../interfaces/task";
+import { IconSymbol } from "../ui/icon-symbol.ios";
 
 
-interface QuantityTaskProps {
+interface EventTaskProps {
   task: Task;
   onBack: () => void;
   onSubmit: (sprouts: number) => void;
   setFavorite: (task: Task) => void;
 }
 
-export function QuantityTask({ task, onBack, onSubmit, setFavorite }: QuantityTaskProps) {
-    const [quantity, setQuantity] = useState(0);
+export function EventTask({ task, onBack, onSubmit, setFavorite }: EventTaskProps) {
   return (
     <View style={styles.container}>
       <View style={styles.card}>
-        <View style={{ flexDirection: "row", marginBottom: 20 }}>
-          <Text style={styles.title}>{task.Title}</Text>
-          <Pressable onPress={() => setFavorite(task)} style={{ marginLeft: "auto" }}>
-            <IconSymbol name="star" size={60} color="#f2c910" />
-          </Pressable>
-        </View>
+         <View style={{ flexDirection: "row", marginBottom: 20 }}>
+                  <Text style={styles.title}>{task.Title}</Text>
+                  <Pressable onPress={() => setFavorite(task)} style={{ marginLeft: "auto" }}>
+                    <IconSymbol name="star" size={60} color="#f2c910" />
+                  </Pressable>
+                </View>
         <Text style={styles.description}>{task.Description}</Text>
 
         <View style={styles.rewardContainer}>
@@ -31,15 +28,16 @@ export function QuantityTask({ task, onBack, onSubmit, setFavorite }: QuantityTa
           </Text>
         </View>
 
-        <QuantityIncrement quantity={quantity} setQuantity={setQuantity} increment={task.Threshold}/>
-
         <View style={styles.buttonContainer}>
-            <Pressable style={styles.button} onPress={onBack}>
+          <Pressable style={styles.button} onPress={onBack}>
             <Text style={styles.buttonText}>Back</Text>
-            </Pressable>
-            <Pressable disabled={quantity <= 0 || quantity % task.Threshold !== 0} style={styles.button} onPress={() => onSubmit(Math.floor((task.SproutValue * quantity) / task.Threshold))}>
+          </Pressable>
+          <Pressable
+            style={styles.button}
+            onPress={() => onSubmit(task.SproutValue / task.Threshold)}
+          >
             <Text style={styles.buttonText}>Submit</Text>
-            </Pressable>
+          </Pressable>
         </View>
       </View>
     </View>
