@@ -6,7 +6,8 @@
         "ID": 201,
         "Description":"Donate your time to environmental cleanup including highways and beaches",
         "SproutValue": 50,
-        "PerLinear":"1 hour"
+        "Threshold": 1,
+        "Unit":"hour"
         },
 
         {
@@ -14,7 +15,8 @@
         "ID": 202,
         "Description": "Donate your time to environmental organizations including animal shelters",
         "SproutValue": 50,
-        "PerLinear": "1 hour"
+        "Threshold": 1,
+        "Unit":"hour"
         },
 
         {
@@ -22,7 +24,8 @@
         "ID": 203,
         "Description":"Spend time gardening and contributing to a greener environment",
         "SproutValue": 20,
-        "PerLinear":"1 hour"
+        "Threshold": 1,
+        "Unit":"hour"
         }
     ]
 }
