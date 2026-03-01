@@ -1,6 +1,5 @@
-import { Text, View, Pressable, StyleSheet } from "react-native";
-import { Task } from "../interfaces/task";
-
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Task } from "../../interfaces/task";
 
 interface EventTaskProps {
   task: Task;
@@ -22,12 +21,15 @@ export function EventTask({ task, onBack, onSubmit }: EventTaskProps) {
         </View>
 
         <View style={styles.buttonContainer}>
-            <Pressable style={styles.button} onPress={onBack}>
+          <Pressable style={styles.button} onPress={onBack}>
             <Text style={styles.buttonText}>Back</Text>
-            </Pressable>
-            <Pressable style={styles.button} onPress={() => onSubmit(task.SproutValue / task.Threshold)}>
+          </Pressable>
+          <Pressable
+            style={styles.button}
+            onPress={() => onSubmit(task.SproutValue / task.Threshold)}
+          >
             <Text style={styles.buttonText}>Submit</Text>
-            </Pressable>
+          </Pressable>
         </View>
       </View>
     </View>

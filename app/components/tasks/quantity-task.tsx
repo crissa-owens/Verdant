@@ -1,16 +1,16 @@
-import { Text, View, Pressable, StyleSheet } from "react-native";
-import { TimeIncrement } from "./time-increment";
 import { useState } from "react";
-import { Task } from "../interfaces/task";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Task } from "../../interfaces/task";
+import { QuantityIncrement } from "./quantity-increment";
 
-interface TimeTaskProps {
+interface QuantityTaskProps {
   task: Task;
   onBack: () => void;
   onSubmit: (sprouts: number) => void;
 }
 
-export function TimeTask({ task, onBack, onSubmit }: TimeTaskProps) {
-    const [time, setTime] = useState(0);
+export function QuantityTask({ task, onBack, onSubmit }: QuantityTaskProps) {
+  const [quantity, setQuantity] = useState(0);
   return (
     <View style={styles.container}>
       <View style={styles.card}>
@@ -23,14 +23,19 @@ export function TimeTask({ task, onBack, onSubmit }: TimeTaskProps) {
           </Text>
         </View>
 
-        <TimeIncrement time={time} setTime={setTime} />
+        <QuantityIncrement quantity={quantity} setQuantity={setQuantity} />
         <View style={styles.buttonContainer}>
-            <Pressable style={styles.button} onPress={onBack}>
+          <Pressable style={styles.button} onPress={onBack}>
             <Text style={styles.buttonText}>Back</Text>
-            </Pressable>
-            <Pressable style={styles.button} onPress={() => onSubmit((task.SproutValue * time) / task.Threshold)}>
+          </Pressable>
+          <Pressable
+            style={styles.button}
+            onPress={() =>
+              onSubmit((task.SproutValue * quantity) / task.Threshold)
+            }
+          >
             <Text style={styles.buttonText}>Submit</Text>
-            </Pressable>
+          </Pressable>
         </View>
       </View>
     </View>

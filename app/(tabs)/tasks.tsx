@@ -1,6 +1,6 @@
-import { AllTasks } from "../components/all-tasks";
-import { SproutContext } from "../context/sprout";
 import { useContext } from "react";
+import { AllTasks } from "../components/tasks/all-tasks";
+import { SproutContext } from "../context/sprout";
 
 export default function TaskPage() {
   const context = useContext(SproutContext);

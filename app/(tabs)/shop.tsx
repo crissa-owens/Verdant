@@ -1,6 +1,6 @@
 import React from "react";
 import { ScrollView, Text, View } from "react-native";
-import Divider from "../components/divider";
+import Divider from "../components/ui/divider";
 import ShopCard from "../components/shop-card";
 import { Reward } from "../interfaces/reward";
 import { styles } from "../styles";
