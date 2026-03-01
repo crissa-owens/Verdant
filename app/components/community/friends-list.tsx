@@ -11,7 +11,7 @@ export default function FriendsList({ friends, setFriends }: FriendsListProps) {
     <View style={styles.container}>
       <Text style={styles.title}>Friends</Text>
         {friends.length === 0 ? (
-          <IconSymbol name="person.3.fill" size={100} color="#ffffff" style={{marginTop: 20}} />
+          <IconSymbol name="person.3.fill" size={100} color="#a6a6a6" style={{marginTop: 20}} />
         ) : (
           <ScrollView style={{ width: "100%" }}>
             {friends.map((friend, index) => (
