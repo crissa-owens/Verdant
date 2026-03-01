@@ -1,5 +1,4 @@
 import { StyleSheet } from "react-native";
-import { TimeIncrement } from "../components/time-increment";
 import { AllTasks } from "../components/all-tasks";
 import { SproutContext } from "../context/sprout";
 import { useContext } from "react";

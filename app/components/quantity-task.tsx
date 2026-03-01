@@ -24,7 +24,8 @@ export function QuantityTask({ task, onBack, onSubmit }: QuantityTaskProps) {
           </Text>
         </View>
 
-        <QuantityIncrement quantity={quantity} setQuantity={setQuantity} />
+        <QuantityIncrement quantity={quantity} setQuantity={setQuantity}/>
+
         <View style={styles.buttonContainer}>
             <Pressable style={styles.button} onPress={onBack}>
             <Text style={styles.buttonText}>Back</Text>
