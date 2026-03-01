@@ -7,16 +7,18 @@
         "Description":"From empty, refill a reusable waterbottle",
         "SproutValue": 5,
         "Threshold": 1,
-        "Unit":"bottle"
+        "Unit":"bottle",
+        "Detail": "Continue to hydrate yourself by refilling a reusable waterbottle rather than turning towards plastic or other unsustainable means!"
         },
 
         {
         "Title":"Recycle Plastic",
         "ID":102,
-        "Description":"Recycle plastic equivalent to 3 waterbottles or 2 plastic bags",
+        "Description":"Recycle plastic.",
         "SproutValue": 5,
         "Threshold": 1,
-        "Unit":"recycling action"
+        "Unit":"recycling action",
+        "Detail": "We come across plastic everyday! Rather than letting it go to waste, properly recycle it based on it's plastic number type."
         },
 
         {
@@ -25,7 +27,8 @@
         "Description":"Recycle items such as: batteries, printer cartridges, or old electronics",
         "SproutValue": 50,
         "Threshold": 1,
-        "Unit":"recycling action"
+        "Unit":"recycling action",
+        "Detail":"Recycling technology can be difficult to do and is often overlooked. Go to the proper facilities to recycle these items."
         },
 
         {
@@ -34,7 +37,8 @@
         "Description":"Donate clothing to thrift stores or donation facilities",
         "SproutValue": 20,
         "Threshold": 3,
-        "Unit":"items"
+        "Unit":"items",
+        "Detail":"Rather than add to landfills with clothes that you don't need or want, donate them to thrift stores or donation facilities to give back to the community and constribute to a greener future."
         },
 
         {
@@ -43,7 +47,8 @@
         "Description": "Shop at thrift stores or from reusable brands",
         "SproutValue": 10,
         "Threshold": 1,
-        "Unit":"purchase"
+        "Unit":"purchase",
+        "Detail": "Rather than shopping from mass producers, shop from thrift stores or reusable brands wherever possible. Brands that upcycle or reuse established material give you the opportunity to contribue to their success while still getting the items you need!"
         },
 
         {
@@ -52,7 +57,8 @@
         "Description":"Travel by non-motorized means, including: walking, biking, or skating",
         "SproutValue": 5,
         "Threshold": 1,
-        "Unit":"mile"
+        "Unit":"mile",
+        "Detail":"Travel to your destinations by non-motorized means, lessening your contribution to the national carbon footprint. Consider walking, biking, skating, or any other method of non-motorized travel."
         },
 
         {
@@ -61,7 +67,8 @@
         "Description":"Donate money to environmental charities",
         "SproutValue": 50,
         "Threshold": 20,
-        "Unit":"USD"
+        "Unit":"USD",
+        "Detail": "Donate your money to environmental charities and organizations, furthering their development and research into a more sustainable future."
         }
     ]
 
