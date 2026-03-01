@@ -16,8 +16,6 @@ export const styles = StyleSheet.create({
             ios: {
                 padding: 20,
                 margin: 20,
-                width: "70%",
-                height: 100,
             },
             web: {
                 padding: 20,
@@ -52,9 +50,10 @@ export const styles = StyleSheet.create({
     card_container: {
         flexDirection: "row", 
         flexWrap: "wrap", 
-        justifyContent: "center" ,
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
+        padding: 10,
         width: "100%",
-        height: "100%",
     },
     profile_styles: {
         justifyContent: "center",

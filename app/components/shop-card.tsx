@@ -10,7 +10,7 @@ export default function ShopCard(props: ShopCardProps) {
   const { reward, onPress } = props;
   return (
     <Pressable style={styles.shop_card}onPress={() => onPress(reward)}>
-      <View style={{ width: "100%", height: "60%" }}>
+      <View style={{ width: "100%", height: "80%" }}>
         <Image
           source={{ uri: reward.image }}
           style={{ width: "100%", height: "100%" }}
@@ -27,7 +27,6 @@ export default function ShopCard(props: ShopCardProps) {
 
 const styles = StyleSheet.create({
   shop_card: {
-    flex: 1,
     backgroundColor: "#fff",
     borderRadius: 10,
     overflow: "hidden",
@@ -35,12 +34,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     ...Platform.select({
       ios: {
-        margin: 5,
+        width: "90%",
+        height: 200,
+        margin: 8
       },
       web: {
-        margin: 5,
-        width: "30%",
-        height: "30%",
+        width: "32%",
+        height: 240,
+        margin: 8
       },
     }),
   },

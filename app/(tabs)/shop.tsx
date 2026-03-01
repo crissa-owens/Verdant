@@ -1,5 +1,5 @@
 import React from "react";
-import { ScrollView, Text, View } from "react-native";
+import { FlatList, Platform, ScrollView, Text, View } from "react-native";
 import Divider from "../components/ui/divider";
 import ShopCard from "../components/shop-card";
 import { Reward } from "../interfaces/reward";
@@ -27,15 +27,25 @@ export default function ShopPage() {
   }
 
   return (
-    <View style={{ flex: 1 }}>
+    <View>
       <View style={styles.shop_styles}>
         <Text style={styles.title}>Shop</Text>
         <Divider />
-        <ScrollView contentContainerStyle={styles.card_container}>
-          {REWARDS.map((reward, index) => (
-            <ShopCard key={index} reward={reward} onPress={handleRewardPress} />
-          ))}
-        </ScrollView>
+          <FlatList
+          data={REWARDS}
+          style={{ width: "100%" }}
+          keyExtractor={(item, index) => index.toString()}
+          numColumns={Platform.OS === "web" ? 3 : 1}
+          columnWrapperStyle={
+            Platform.OS === "web"
+              ? { justifyContent: "space-between" }
+              : undefined
+          }
+          contentContainerStyle={{ paddingVertical: 10 }}
+          renderItem={({ item }) => (
+            <ShopCard reward={item} onPress={handleRewardPress} />
+          )}
+        />
       </View>
     </View>
   );
