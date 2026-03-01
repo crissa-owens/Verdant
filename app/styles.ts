@@ -26,6 +26,22 @@ export const styles = StyleSheet.create({
             },
         })
     },
+    input_styles: {
+        width: 150,
+        height: 40,
+        borderColor: "gray",
+        borderWidth: 1,
+        backgroundColor: "white",
+        padding: 10,
+    },
+    button_styles: {
+        backgroundColor: "blue", 
+        padding: 10, 
+        borderRadius: 5, 
+        marginTop: 20,
+        width: 150,
+        alignItems: "center",
+    },
     shop_styles: {
         justifyContent: "center",
         alignItems: "center",
@@ -37,6 +53,13 @@ export const styles = StyleSheet.create({
         flexDirection: "row", 
         flexWrap: "wrap", 
         justifyContent: "center" ,
+        width: "100%",
+        height: "100%",
+    },
+    profile_styles: {
+        justifyContent: "center",
+        alignItems: "center",
+        alignContent: "center",
         width: "100%",
         height: "100%",
     }
