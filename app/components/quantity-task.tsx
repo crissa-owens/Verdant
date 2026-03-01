@@ -1,14 +1,17 @@
 import { Text, View, Pressable, StyleSheet } from "react-native";
-import { TimeIncrement } from "./time-increment";
+import { QuantityIncrement } from "./quantity-increment";
 import { useState } from "react";
 import { Task } from "../interfaces/task";
 
-interface QuantityTaskProps {
+
+interface TimeTaskProps {
   task: Task;
   onBack: () => void;
+  onSubmit: (sprouts: number) => void;
 }
 
-export function QuantityTask({ task, onBack }: QuantityTaskProps) {
+export function QuantityTask({ task, onBack, onSubmit }: TimeTaskProps) {
+    const [quantity, setQuantity] = useState(0);
   return (
     <View style={styles.container}>
       <View style={styles.card}>
@@ -17,13 +20,19 @@ export function QuantityTask({ task, onBack }: QuantityTaskProps) {
 
         <View style={styles.rewardContainer}>
           <Text style={styles.rewardText}>
-            {task.SproutValue} Sprouts per {task.PerLinear}
+            {task.SproutValue} Sprouts per {task.Threshold} {task.Unit}
           </Text>
         </View>
 
-        <Pressable style={styles.backButton} onPress={onBack}>
-          <Text style={styles.backButtonText}>Back</Text>
-        </Pressable>
+        <QuantityIncrement quantity={quantity} setQuantity={setQuantity} />
+        <View style={styles.buttonContainer}>
+            <Pressable style={styles.button} onPress={onBack}>
+            <Text style={styles.buttonText}>Back</Text>
+            </Pressable>
+            <Pressable style={styles.button} onPress={() => onSubmit((task.SproutValue * quantity) / task.Threshold)}>
+            <Text style={styles.buttonText}>Submit</Text>
+            </Pressable>
+        </View>
       </View>
     </View>
   );
@@ -62,20 +71,26 @@ const styles = StyleSheet.create({
     backgroundColor: "#e8f5e9",
     padding: 12,
     borderRadius: 12,
-    marginBottom: 30,
+    marginBottom: 20,
   },
   rewardText: {
     fontSize: 16,
     fontWeight: "600",
     color: "#2e7d32",
   },
-  backButton: {
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  button: {
+    marginTop: 20,
     backgroundColor: "#222",
     paddingVertical: 12,
     borderRadius: 12,
     alignItems: "center",
+    minWidth: 100,
   },
-  backButtonText: {
+  buttonText: {
     color: "#fff",
     fontSize: 16,
     fontWeight: "600",

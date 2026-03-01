@@ -15,7 +15,7 @@ export function EventTask({ task, onBack }: EventTaskProps) {
 
         <View style={styles.rewardContainer}>
           <Text style={styles.rewardText}>
-            {task.SproutValue} Sprouts per {task.PerLinear}
+            {task.SproutValue} Sprouts per {task.Threshold} {task.Unit}
           </Text>
         </View>
 
