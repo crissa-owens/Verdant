@@ -4,13 +4,13 @@ import { useState } from "react";
 import { Task } from "../interfaces/task";
 
 
-interface TimeTaskProps {
+interface QuantityTaskProps {
   task: Task;
   onBack: () => void;
   onSubmit: (sprouts: number) => void;
 }
 
-export function QuantityTask({ task, onBack, onSubmit }: TimeTaskProps) {
+export function QuantityTask({ task, onBack, onSubmit }: QuantityTaskProps) {
     const [quantity, setQuantity] = useState(0);
   return (
     <View style={styles.container}>

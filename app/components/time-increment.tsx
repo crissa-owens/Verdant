@@ -1,5 +1,4 @@
-import { useState } from 'react';
-import { View, Button, StyleSheet, SafeAreaView, TextInput, Pressable, Text } from 'react-native';
+import { View, StyleSheet, SafeAreaView, TextInput, Pressable, Text } from 'react-native';
 
 interface TimeIncrementProps {
     time: number;
