@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Platform } from "react-native";
 import { IconSymbol } from "./ui/icon-symbol";
 import { useContext } from "react";
 import { TaskContext } from "../context/task";
@@ -40,7 +40,15 @@ const styles = StyleSheet.create({
         backgroundColor: "#e6e6e6",
         borderRadius: 10,
         padding: 20,
-        width: "50%",
-        height: 100,
+        ...Platform.select({
+            ios: {
+                width: "90%",
+                height: 150,
+            },
+            web: {
+                width: "50%",
+                height: 100,
+            },
+        })
     }
 })

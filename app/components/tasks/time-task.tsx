@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View, Platform } from "react-native";
 import { Task } from "../../interfaces/task";
 import { TimeIncrement } from "./time-increment";
 import { IconSymbol } from "../ui/icon-symbol.ios";
@@ -53,7 +53,16 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   card: {
-    width: "100%",
+    ...Platform.select({
+          ios: {
+            width: "90%",
+            padding: 20,
+          },
+          web: {
+            width: "70%",
+            padding: 30,
+          },
+    }),
     backgroundColor: "#ffffff",
     borderRadius: 16,
     padding: 20,

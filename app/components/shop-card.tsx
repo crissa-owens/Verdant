@@ -1,5 +1,6 @@
 import { Image, Platform, Pressable, StyleSheet, Text, View } from "react-native";
 import { Reward } from "../interfaces/reward";
+import { IconSymbol } from "./ui/icon-symbol";
 
 interface ShopCardProps {
   reward: Reward;
@@ -10,7 +11,7 @@ export default function ShopCard(props: ShopCardProps) {
   const { reward, onPress } = props;
   return (
     <Pressable style={styles.shop_card}onPress={() => onPress(reward)}>
-      <View style={{ width: "100%", height: "60%" }}>
+      <View style={{ width: "100%", height: "80%" }}>
         <Image
           source={{ uri: reward.image }}
           style={{ width: "100%", height: "100%" }}
@@ -19,7 +20,7 @@ export default function ShopCard(props: ShopCardProps) {
       </View>
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         <Text style={{ padding: 10 }}>{reward.title}</Text>
-        <Text style={{ padding: 10 }}>{reward.cost} Sprouts</Text>
+        <Text style={{ padding: 10 }}>{reward.cost} Sprouts <IconSymbol name="leaf.fill" size={16} color="#76c796"/></Text>
       </View>
     </Pressable>
   );
@@ -27,7 +28,6 @@ export default function ShopCard(props: ShopCardProps) {
 
 const styles = StyleSheet.create({
   shop_card: {
-    flex: 1,
     backgroundColor: "#fff",
     borderRadius: 10,
     overflow: "hidden",
@@ -35,12 +35,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     ...Platform.select({
       ios: {
-        margin: 5,
+        width: "90%",
+        height: 200,
+        margin: 8
       },
       web: {
-        margin: 5,
-        width: "30%",
-        height: "30%",
+        width: "32%",
+        height: 240,
+        margin: 8
       },
     }),
   },

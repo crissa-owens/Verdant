@@ -6,8 +6,8 @@
         "description": "Adopt an endangered animal of your choosing. Track their movement and health!",
         "cost": 10000,
         "value" : "1 animal",
-        "image" : "https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_25/2899136/190617-puppy-dog-eyes-cs-325p.jpg",
-        "detail" :"Symbolically adopt an endagered animal through WWF. This would give you a certificate, photocard, and a fact sheet about your adoptee. The animal will help save the animals, protect their environment, and build a future where animals and humans live together."
+        "image" : "https://images.pexels.com/photos/2306896/pexels-photo-2306896.jpeg",
+        "detail": "Symbolically adopt an endagered animal through WWF. This would give you a certificate, photocard, and a fact sheet about your adoptee. The animal will help save the animals, protect their environment, and build a future where animals and humans live together."
         },
 
         {
@@ -16,7 +16,7 @@
         "description":"Donate money to a park of your choosing",
         "cost": 30,
         "value":"10 USD",
-        "image" : "",
+        "image" : "https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg",
         "detail" : "Contribute 10USD to a park of your choosing. This will help them maintain the beautiful sites they inhabit and allow their continued protection of local flora and fauna."
         },
 
@@ -26,8 +26,8 @@
         "description":"Donate money to coral reef restoration.",
         "cost": 30,
         "value":"10 USD",
-        "image" : "",
-        "detail": "Contribute 10USD to coral reef restoration. Coral reefs are at risk due to carbon bleaching and "
+        "image" : "https://images.pexels.com/photos/4610207/pexels-photo-4610207.jpeg",
+        "detail":"Contribute 10USD to coral reef restoration. Coral reefs are at risk due to carbon bleaching and raising water temperatures. Help contribute to the revitalization effort!"
         },
 
         {
@@ -36,7 +36,8 @@
         "description": "Plant a tree!",
         "cost": 10,
         "value": "1 tree",
-        "image": ""
+        "image": "https://images.pexels.com/photos/1072824/pexels-photo-1072824.jpeg",
+        "detail": "Plant a tree in your honor and help contribute to lessening general CO2 levels and a greener tomorrow."
         },
 
         {
@@ -45,7 +46,8 @@
         "description": "Donate money to animal rehabilitation clinics and organizations",
         "cost": 30,
         "value":"10 USD",
-        "image": ""
+        "image": "https://images.pexels.com/photos/6816861/pexels-photo-6816861.jpeg",
+        "detail":"Contribute 10USD to animal rehabilitation clinics and organizations. These facilities help restore the health and wellbeing of animals in order to help them thrive back in the wild or live  enriching lives in the safety of their care."
         },
 
         {
@@ -54,7 +56,8 @@
         "description": "Donate money to furthering reseach in sustainable goals of your choosing.",
         "cost": 30,
         "value":"10 USD",
-        "image": ""
+        "image": "https://images.pexels.com/photos/4033148/pexels-photo-4033148.jpeg",
+        "detail":"Contribute 10USD to sustainable research projects of your choosing. These projects help to further innovate and develop upon sustainability goals and progress in meaningful ways towards a greener tomorrow."
         }
     ]
 }
