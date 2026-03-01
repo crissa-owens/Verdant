@@ -6,7 +6,9 @@
         "ID": 301,
         "Description":"Adopt an animal from a shelter or save a stray",
         "SproutValue": 100,
-        "PerLinear":"1 claim"
+        "Threshold": 1,
+        "Unit":"rescue"
+
        },
 
        {
@@ -14,7 +16,8 @@
         "ID": 302,
         "Description":"Patron a state or national park",
         "SproutValue": 50,
-        "PerLinear": "1 trip"
+        "Threshold": 1,
+        "Unit":"trip"
        },
 
        {
@@ -22,7 +25,8 @@
         "ID": 303,
         "Description":"Visit a local park",
         "SproutValue": 20,
-        "PerLinear": "1 trip"
+        "Threshold": 1,
+        "Unit": "trip"
        }
     ]
 }

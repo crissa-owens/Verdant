@@ -1,15 +1,15 @@
 import { View, StyleSheet, SafeAreaView, TextInput, Pressable, Text } from 'react-native';
 
-interface TimeIncrementProps {
-    time: number;
-    setTime: (newTime: number) => void;
+interface QuantityIncrementProps {
+    quantity: number;
+    setQuantity: (newQuantity: number) => void;
 }
-export function TimeIncrement({ time, setTime }: TimeIncrementProps) {
+export function QuantityIncrement({ quantity, setQuantity }: QuantityIncrementProps) {
 
     return (
         <View style={styles.container}>
                 <Pressable
-                    onPress={() => setTime(time - 1)}
+                    onPress={() => setQuantity(quantity - 1)}
                     style={({ pressed }) => [ // Style prop receives a function with 'pressed' boolean
                         styles.ButtonBase,
                         {
@@ -17,7 +17,7 @@ export function TimeIncrement({ time, setTime }: TimeIncrementProps) {
                         },
                         
                     ]}
-                    disabled={time <= 0} // Disable the button if timeSpent is 0 or less
+                    disabled={quantity <= 0} // Disable the button if quantity is 0 or less
                     >
                     <Text style={styles.ButtonText}>-</Text>
                 </Pressable>
@@ -25,21 +25,21 @@ export function TimeIncrement({ time, setTime }: TimeIncrementProps) {
                 <SafeAreaView>
                     <TextInput
                         style={styles.input}
-                        onChangeText={(text) => setTime(parseInt(text) || 0)}
-                        value={time.toString()}
+                        onChangeText={(text) => setQuantity(parseInt(text) || 0)}
+                        value={quantity.toString()}
                         placeholder="0"
                         keyboardType="numeric" // Displays the numeric keyboard
                     />
                 </SafeAreaView>
             <Pressable
-                    onPress={() => setTime(time + 1)}
+                    onPress={() => setQuantity(quantity + 1)}
                     style={({ pressed }) => [ // Style prop receives function with 'pressed' boolean
                         styles.ButtonBase,
                         {
                         backgroundColor: pressed ? '#007062' : '#009688', // Darker when pressed
                         },
                     ]}
-                    disabled={time >= 24} // Disable the button if timeSpent is 24 or more
+                    disabled={quantity >= 100} // Disable the button if quantity is 100 or more
                     >
                     <Text style={styles.ButtonText}>+</Text>
                 </Pressable>

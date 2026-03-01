@@ -3,14 +3,20 @@ import React from 'react';
 import { IconSymbol } from '../components/ui/icon-symbol';
 import { HapticTab } from '../components/haptic-tab';
 import { TouchableOpacity } from 'react-native';
+import { SproutContext } from '../context/sprout';
+import { SproutCounter } from '../components/counter';
+
 
 export default function TabLayout() {
+  const [sprouts, setSprouts] = React.useState(0);
 
   return (
+  <SproutContext.Provider value={{ sprouts, setSprouts }}>
     <Tabs
       screenOptions={{
               headerTitle: "Verdant",
               headerTitleAlign: "center",
+              headerLeft: () => <SproutCounter count={sprouts} />,
               headerRight: () => 
               <TouchableOpacity
                 onPress={() => router.push("/profile")}
@@ -46,5 +52,7 @@ export default function TabLayout() {
         name="profile"
         options={{ href: null}}/>
     </Tabs>
+  </SproutContext.Provider>
+
   );
 }

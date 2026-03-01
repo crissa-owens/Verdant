@@ -6,9 +6,11 @@ import { Task } from "../interfaces/task";
 interface TimeTaskProps {
   task: Task;
   onBack: () => void;
+  onSubmit: (sprouts: number) => void;
 }
 
-export function TimeTask({ task, onBack }: TimeTaskProps) {
+export function TimeTask({ task, onBack, onSubmit }: TimeTaskProps) {
+    const [time, setTime] = useState(0);
   return (
     <View style={styles.container}>
       <View style={styles.card}>
@@ -17,15 +19,19 @@ export function TimeTask({ task, onBack }: TimeTaskProps) {
 
         <View style={styles.rewardContainer}>
           <Text style={styles.rewardText}>
-            {task.SproutValue} Sprouts per {task.PerLinear}
+            {task.SproutValue} Sprouts per {task.Threshold} {task.Unit}
           </Text>
         </View>
 
-        <TimeIncrement/>
-
-        <Pressable style={styles.backButton} onPress={onBack}>
-          <Text style={styles.backButtonText}>Back</Text>
-        </Pressable>
+        <TimeIncrement time={time} setTime={setTime} />
+        <View style={styles.buttonContainer}>
+            <Pressable style={styles.button} onPress={onBack}>
+            <Text style={styles.buttonText}>Back</Text>
+            </Pressable>
+            <Pressable style={styles.button} onPress={() => onSubmit((task.SproutValue * time) / task.Threshold)}>
+            <Text style={styles.buttonText}>Submit</Text>
+            </Pressable>
+        </View>
       </View>
     </View>
   );
@@ -71,14 +77,19 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     color: "#2e7d32",
   },
-  backButton: {
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  button: {
     marginTop: 20,
     backgroundColor: "#222",
     paddingVertical: 12,
     borderRadius: 12,
     alignItems: "center",
+    minWidth: 100,
   },
-  backButtonText: {
+  buttonText: {
     color: "#fff",
     fontSize: 16,
     fontWeight: "600",
