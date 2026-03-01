@@ -23,12 +23,12 @@ export function TimeTask({ task, onBack, onSubmit }: TimeTaskProps) {
           </Text>
         </View>
 
-        <TimeIncrement time={time} setTime={setTime} />
+        <TimeIncrement time={time} setTime={setTime} increment={task.Threshold}/>
         <View style={styles.buttonContainer}>
             <Pressable style={styles.button} onPress={onBack}>
             <Text style={styles.buttonText}>Back</Text>
             </Pressable>
-            <Pressable style={styles.button} onPress={() => onSubmit((task.SproutValue * time) / task.Threshold)}>
+            <Pressable disabled={time <= 0 || time % task.Threshold !== 0} style={styles.button} onPress={() => onSubmit(Math.floor((task.SproutValue * time) / task.Threshold))}>
             <Text style={styles.buttonText}>Submit</Text>
             </Pressable>
         </View>

@@ -1,6 +1,4 @@
 import { Text, View, Pressable, StyleSheet } from "react-native";
-import { QuantityIncrement } from "./quantity-increment";
-import { useState } from "react";
 import { Task } from "../interfaces/task";
 
 
